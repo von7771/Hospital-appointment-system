@@ -1,0 +1,14 @@
+function updateAppointmentStatus(appointmentId, status) {
+    $.ajax({
+        url: '/api/appointment/updateStatus',
+        type: 'PUT',
+        data: { appointmentId: appointmentId, status: status },
+        success: function(res) {
+            alert('状态更新成功');
+            location.reload();
+        },
+        error: function(err) {
+            alert('状态更新失败，请重试');
+        }
+    });
+}

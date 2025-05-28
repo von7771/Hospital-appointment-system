@@ -1,0 +1,4381 @@
+2025-05-27 20:19:28 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 13380 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 20:19:28 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 20:19:28 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 20:19:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 20:19:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75 ms. Found 4 JPA repository interfaces.
+2025-05-27 20:19:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 20:19:29 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 20:19:29 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 20:19:29 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 20:19:29 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1194 ms
+2025-05-27 20:19:30 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 20:19:30 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 20:19:30 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 20:19:30 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 20:19:30 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 20:19:30 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e31062c
+2025-05-27 20:19:30 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 20:19:31 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 20:19:31 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:19:31 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 20:19:32 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 20:19:32 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 20:19:32 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 20:19:32 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-27 20:19:32 [main] INFO  c.h.HospitalAppointmentApplication - Started HospitalAppointmentApplication in 4.315 seconds (process running for 4.73)
+2025-05-27 20:19:43 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27 20:19:43 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-27 20:19:43 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-05-27 20:19:44 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0
+2025-05-27 20:20:43 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:20:45 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 20:24:13 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 12672 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 20:24:13 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 20:24:13 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 20:24:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 20:24:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 4 JPA repository interfaces.
+2025-05-27 20:24:14 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 20:24:14 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 20:24:14 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 20:24:14 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 20:24:14 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1073 ms
+2025-05-27 20:24:14 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 20:24:14 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 20:24:14 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 20:24:14 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 20:24:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 20:24:15 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@40f9f60d
+2025-05-27 20:24:15 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 20:24:15 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 20:24:15 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:24:16 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 20:24:16 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 20:24:16 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 34628 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 20:24:16 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 20:24:16 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 20:24:16 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 20:24:17 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 20:24:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-27 20:24:17 [main] INFO  c.h.HospitalAppointmentApplication - Started HospitalAppointmentApplication in 4.194 seconds (process running for 4.468)
+2025-05-27 20:24:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 20:24:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 4 JPA repository interfaces.
+2025-05-27 20:24:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 20:24:17 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 20:24:17 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 20:24:17 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 20:24:17 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1210 ms
+2025-05-27 20:24:18 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 20:24:18 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 20:24:18 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 20:24:18 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 20:24:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 20:24:18 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6ce9771c
+2025-05-27 20:24:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 20:24:19 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 20:24:19 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:24:19 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 20:24:20 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 20:24:20 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 20:24:20 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 20:24:20 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-05-27 20:24:20 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:24:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-27 20:24:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-27 20:24:20 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-27 20:24:20 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-05-27 20:24:24 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 22732 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 20:24:24 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 20:24:24 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 20:24:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 20:24:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 4 JPA repository interfaces.
+2025-05-27 20:24:25 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 20:24:25 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 20:24:25 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 20:24:25 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 20:24:25 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1037 ms
+2025-05-27 20:24:26 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 20:24:26 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 20:24:26 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 20:24:26 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 20:24:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 20:24:26 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6bd7439d
+2025-05-27 20:24:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 20:24:27 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 20:24:27 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:24:27 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 20:24:28 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 20:24:28 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 20:24:28 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 20:24:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-27 20:24:28 [main] INFO  c.h.HospitalAppointmentApplication - Started HospitalAppointmentApplication in 3.925 seconds (process running for 4.182)
+2025-05-27 20:24:30 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27 20:24:30 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-27 20:24:30 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-05-27 20:25:04 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:25:10 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:25:14 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:27:55 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 28120 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 20:27:55 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 20:27:55 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 20:27:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 20:27:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 4 JPA repository interfaces.
+2025-05-27 20:27:56 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 20:27:56 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 20:27:56 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 20:27:56 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 20:27:56 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1033 ms
+2025-05-27 20:27:56 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 20:27:56 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 20:27:56 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 20:27:56 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 20:27:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 20:27:57 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ced17f3
+2025-05-27 20:27:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 20:27:57 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 20:27:57 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:27:58 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 20:27:58 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 20:27:58 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 20:27:58 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 20:27:59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-27 20:27:59 [main] INFO  c.h.HospitalAppointmentApplication - Started HospitalAppointmentApplication in 3.898 seconds (process running for 4.171)
+2025-05-27 20:28:03 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27 20:28:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-27 20:28:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-05-27 20:28:13 [http-nio-8080-exec-2] INFO  c.hospital.controller.UserController - 医生登录请求: 用户名=doctor
+2025-05-27 20:28:13 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:28:13 [http-nio-8080-exec-2] INFO  c.hospital.controller.UserController - 医生登录成功: ID=7, 用户名=doctor
+2025-05-27 20:28:13 [http-nio-8080-exec-2] WARN  c.hospital.controller.UserController - 医生用户没有关联的医生实体: ID=7, 用户名=doctor
+2025-05-27 20:28:13 [http-nio-8080-exec-2] INFO  c.hospital.controller.UserController - 已创建临时医生信息: ID=7, 姓名=doctor
+2025-05-27 20:28:14 [http-nio-8080-exec-4] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=7
+2025-05-27 20:28:14 [http-nio-8080-exec-4] INFO  com.hospital.service.DoctorService - 按ID查询医生: 7
+2025-05-27 20:28:14 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:28:14 [http-nio-8080-exec-4] INFO  com.hospital.service.DoctorService - 找到医生: ID=7, 姓名=医生7
+2025-05-27 20:28:14 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=7, 姓名=医生7
+2025-05-27 20:28:14 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 20:28:14 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:28:14 [http-nio-8080-exec-4] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=7, 预约数量=0
+2025-05-27 20:28:14 [http-nio-8080-exec-4] INFO  c.h.controller.AppointmentController - 医生没有预约记录: ID=7, 姓名=医生7
+2025-05-27 20:28:19 [http-nio-8080-exec-5] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=7
+2025-05-27 20:28:19 [http-nio-8080-exec-5] INFO  com.hospital.service.DoctorService - 按ID查询医生: 7
+2025-05-27 20:28:19 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:28:19 [http-nio-8080-exec-5] INFO  com.hospital.service.DoctorService - 找到医生: ID=7, 姓名=医生7
+2025-05-27 20:28:19 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=7, 姓名=医生7
+2025-05-27 20:28:19 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 20:28:19 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:28:19 [http-nio-8080-exec-5] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=7, 预约数量=0
+2025-05-27 20:28:19 [http-nio-8080-exec-5] INFO  c.h.controller.AppointmentController - 医生没有预约记录: ID=7, 姓名=医生7
+2025-05-27 20:28:25 [http-nio-8080-exec-7] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=7
+2025-05-27 20:28:25 [http-nio-8080-exec-7] INFO  com.hospital.service.DoctorService - 按ID查询医生: 7
+2025-05-27 20:28:25 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:28:25 [http-nio-8080-exec-7] INFO  com.hospital.service.DoctorService - 找到医生: ID=7, 姓名=医生7
+2025-05-27 20:28:25 [http-nio-8080-exec-7] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=7, 姓名=医生7
+2025-05-27 20:28:25 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 20:28:25 [http-nio-8080-exec-7] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:28:25 [http-nio-8080-exec-7] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=7, 预约数量=0
+2025-05-27 20:28:25 [http-nio-8080-exec-7] INFO  c.h.controller.AppointmentController - 医生没有预约记录: ID=7, 姓名=医生7
+2025-05-27 20:28:29 [http-nio-8080-exec-8] INFO  com.hospital.service.DoctorService - 按科室查询医生: 儿科
+2025-05-27 20:28:29 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.department=?
+2025-05-27 20:28:39 [http-nio-8080-exec-9] INFO  c.h.controller.AppointmentController - 预约请求: 用户ID=5, 医生ID=12, 时间=0001-01-01T01:01, 状态=booked
+2025-05-27 20:28:39 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 20:28:39 [http-nio-8080-exec-9] INFO  com.hospital.service.DoctorService - 按ID查询医生: 12
+2025-05-27 20:28:39 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:28:39 [http-nio-8080-exec-9] INFO  com.hospital.service.DoctorService - 找到医生: ID=12, 姓名=doctor
+2025-05-27 20:28:39 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 创建预约: 用户=admin, 医生=doctor, 时间=0001-01-01T01:01
+2025-05-27 20:28:39 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        appointment
+        (appointment_time, doctor_id, status, user_id) 
+    values
+        (?, ?, ?, ?)
+2025-05-27 20:28:39 [http-nio-8080-exec-9] INFO  c.h.controller.AppointmentController - 预约成功: ID=10, 用户=admin, 医生=doctor
+2025-05-27 20:28:42 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:28:42 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=7, 用户名=doctor
+2025-05-27 20:28:42 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 20:28:42 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 用户预约数量: 0
+2025-05-27 20:28:49 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:28:49 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=7, 用户名=doctor
+2025-05-27 20:28:49 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 20:28:49 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 用户预约数量: 0
+2025-05-27 20:28:56 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:28:56 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=7, 用户名=doctor
+2025-05-27 20:28:56 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 20:28:56 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 用户预约数量: 0
+2025-05-27 20:29:04 [http-nio-8080-exec-6] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=7
+2025-05-27 20:29:04 [http-nio-8080-exec-6] INFO  com.hospital.service.DoctorService - 按ID查询医生: 7
+2025-05-27 20:29:04 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:29:04 [http-nio-8080-exec-6] INFO  com.hospital.service.DoctorService - 找到医生: ID=7, 姓名=医生7
+2025-05-27 20:29:04 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=7, 姓名=医生7
+2025-05-27 20:29:04 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 20:29:04 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:29:04 [http-nio-8080-exec-6] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=7, 预约数量=0
+2025-05-27 20:29:04 [http-nio-8080-exec-6] INFO  c.h.controller.AppointmentController - 医生没有预约记录: ID=7, 姓名=医生7
+2025-05-27 20:29:07 [http-nio-8080-exec-8] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=7
+2025-05-27 20:29:07 [http-nio-8080-exec-8] INFO  com.hospital.service.DoctorService - 按ID查询医生: 7
+2025-05-27 20:29:07 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:29:07 [http-nio-8080-exec-8] INFO  com.hospital.service.DoctorService - 找到医生: ID=7, 姓名=医生7
+2025-05-27 20:29:07 [http-nio-8080-exec-8] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=7, 姓名=医生7
+2025-05-27 20:29:07 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 20:29:07 [http-nio-8080-exec-8] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:29:07 [http-nio-8080-exec-8] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=7, 预约数量=0
+2025-05-27 20:29:07 [http-nio-8080-exec-8] INFO  c.h.controller.AppointmentController - 医生没有预约记录: ID=7, 姓名=医生7
+2025-05-27 20:29:43 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:29:44 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 20:29:46 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:29:46 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=5, 用户名=admin
+2025-05-27 20:29:46 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 20:29:46 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:29:46 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:29:46 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 用户预约数量: 3
+2025-05-27 20:29:55 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:29:55 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=5, 用户名=admin
+2025-05-27 20:29:55 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 20:29:55 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:29:55 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:29:55 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 用户预约数量: 3
+2025-05-27 20:30:48 [http-nio-8080-exec-10] INFO  c.hospital.controller.UserController - 医生登录请求: 用户名=doctor
+2025-05-27 20:30:48 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:30:48 [http-nio-8080-exec-10] INFO  c.hospital.controller.UserController - 医生登录成功: ID=7, 用户名=doctor
+2025-05-27 20:30:48 [http-nio-8080-exec-10] WARN  c.hospital.controller.UserController - 医生用户没有关联的医生实体: ID=7, 用户名=doctor
+2025-05-27 20:30:48 [http-nio-8080-exec-10] INFO  c.hospital.controller.UserController - 已创建临时医生信息: ID=7, 姓名=doctor
+2025-05-27 20:30:49 [http-nio-8080-exec-1] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=7
+2025-05-27 20:30:49 [http-nio-8080-exec-1] INFO  com.hospital.service.DoctorService - 按ID查询医生: 7
+2025-05-27 20:30:49 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:30:49 [http-nio-8080-exec-1] INFO  com.hospital.service.DoctorService - 找到医生: ID=7, 姓名=医生7
+2025-05-27 20:30:49 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=7, 姓名=医生7
+2025-05-27 20:30:49 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 20:30:49 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:30:49 [http-nio-8080-exec-1] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=7, 预约数量=0
+2025-05-27 20:30:49 [http-nio-8080-exec-1] INFO  c.h.controller.AppointmentController - 医生没有预约记录: ID=7, 姓名=医生7
+2025-05-27 20:31:05 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:31:05 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=7, 用户名=doctor
+2025-05-27 20:31:05 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 20:31:05 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 用户预约数量: 0
+2025-05-27 20:32:00 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:32:01 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 20:32:03 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:32:03 [http-nio-8080-exec-7] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=5, 用户名=admin
+2025-05-27 20:32:03 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 20:32:03 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:32:03 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:32:03 [http-nio-8080-exec-7] INFO  c.h.service.AppointmentService - 用户预约数量: 3
+2025-05-27 20:33:02 [http-nio-8080-exec-1] INFO  c.hospital.controller.UserController - 医生登录请求: 用户名=doctor
+2025-05-27 20:33:02 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:33:02 [http-nio-8080-exec-1] INFO  c.hospital.controller.UserController - 医生登录成功: ID=7, 用户名=doctor
+2025-05-27 20:33:02 [http-nio-8080-exec-1] WARN  c.hospital.controller.UserController - 医生用户没有关联的医生实体: ID=7, 用户名=doctor
+2025-05-27 20:33:02 [http-nio-8080-exec-1] INFO  c.hospital.controller.UserController - 已创建临时医生信息: ID=7, 姓名=doctor
+2025-05-27 20:33:03 [http-nio-8080-exec-2] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=7
+2025-05-27 20:33:03 [http-nio-8080-exec-2] INFO  com.hospital.service.DoctorService - 按ID查询医生: 7
+2025-05-27 20:33:03 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:33:03 [http-nio-8080-exec-2] INFO  com.hospital.service.DoctorService - 找到医生: ID=7, 姓名=医生7
+2025-05-27 20:33:03 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=7, 姓名=医生7
+2025-05-27 20:33:03 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 20:33:03 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:33:03 [http-nio-8080-exec-2] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=7, 预约数量=0
+2025-05-27 20:33:03 [http-nio-8080-exec-2] INFO  c.h.controller.AppointmentController - 医生没有预约记录: ID=7, 姓名=医生7
+2025-05-27 20:35:19 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 10204 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 20:35:19 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 20:35:19 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 20:35:19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 20:35:19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 69 ms. Found 4 JPA repository interfaces.
+2025-05-27 20:35:20 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 20:35:20 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 20:35:20 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 20:35:20 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 20:35:20 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1063 ms
+2025-05-27 20:35:20 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 20:35:20 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 20:35:20 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 20:35:20 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 20:35:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 20:35:21 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1231a1be
+2025-05-27 20:35:21 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 20:35:21 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 20:35:21 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:35:22 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 20:35:22 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 20:35:22 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 20:35:22 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 20:35:22 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-27 20:35:22 [main] INFO  c.h.HospitalAppointmentApplication - Started HospitalAppointmentApplication in 4.013 seconds (process running for 4.293)
+2025-05-27 20:35:24 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27 20:35:24 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-27 20:35:24 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-05-27 20:35:25 [http-nio-8080-exec-2] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=7
+2025-05-27 20:35:25 [http-nio-8080-exec-2] INFO  com.hospital.service.DoctorService - 按ID查询医生: 7
+2025-05-27 20:35:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:35:25 [http-nio-8080-exec-2] INFO  com.hospital.service.DoctorService - 找到医生: ID=7, 姓名=医生7
+2025-05-27 20:35:25 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=7, 姓名=医生7
+2025-05-27 20:35:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 20:35:25 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:35:25 [http-nio-8080-exec-2] INFO  c.h.controller.AppointmentController - 通过ID未找到预约，尝试通过医生名称查询: ID=7, 姓名=医生7
+2025-05-27 20:35:25 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 根据名称查询医生的预约: 姓名=医生7
+2025-05-27 20:35:25 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    where
+        d1_0.name=?
+2025-05-27 20:35:25 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:35:25 [http-nio-8080-exec-2] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=7, 预约数量=0
+2025-05-27 20:35:25 [http-nio-8080-exec-2] INFO  c.h.controller.AppointmentController - 医生没有预约记录: ID=7, 姓名=医生7
+2025-05-27 20:35:28 [http-nio-8080-exec-4] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=7
+2025-05-27 20:35:28 [http-nio-8080-exec-4] INFO  com.hospital.service.DoctorService - 按ID查询医生: 7
+2025-05-27 20:35:28 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:35:28 [http-nio-8080-exec-4] INFO  com.hospital.service.DoctorService - 找到医生: ID=7, 姓名=医生7
+2025-05-27 20:35:28 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=7, 姓名=医生7
+2025-05-27 20:35:28 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 20:35:28 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:35:28 [http-nio-8080-exec-4] INFO  c.h.controller.AppointmentController - 通过ID未找到预约，尝试通过医生名称查询: ID=7, 姓名=医生7
+2025-05-27 20:35:28 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 根据名称查询医生的预约: 姓名=医生7
+2025-05-27 20:35:28 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    where
+        d1_0.name=?
+2025-05-27 20:35:28 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:35:28 [http-nio-8080-exec-4] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=7, 预约数量=0
+2025-05-27 20:35:28 [http-nio-8080-exec-4] INFO  c.h.controller.AppointmentController - 医生没有预约记录: ID=7, 姓名=医生7
+2025-05-27 20:35:31 [http-nio-8080-exec-6] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=7
+2025-05-27 20:35:31 [http-nio-8080-exec-6] INFO  com.hospital.service.DoctorService - 按ID查询医生: 7
+2025-05-27 20:35:31 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:35:31 [http-nio-8080-exec-6] INFO  com.hospital.service.DoctorService - 找到医生: ID=7, 姓名=医生7
+2025-05-27 20:35:31 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=7, 姓名=医生7
+2025-05-27 20:35:31 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 20:35:31 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:35:31 [http-nio-8080-exec-6] INFO  c.h.controller.AppointmentController - 通过ID未找到预约，尝试通过医生名称查询: ID=7, 姓名=医生7
+2025-05-27 20:35:31 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 根据名称查询医生的预约: 姓名=医生7
+2025-05-27 20:35:31 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    where
+        d1_0.name=?
+2025-05-27 20:35:31 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:35:31 [http-nio-8080-exec-6] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=7, 预约数量=0
+2025-05-27 20:35:31 [http-nio-8080-exec-6] INFO  c.h.controller.AppointmentController - 医生没有预约记录: ID=7, 姓名=医生7
+2025-05-27 20:35:56 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:35:57 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 查询所有预约
+2025-05-27 20:35:57 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0
+2025-05-27 20:35:57 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:35:57 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 20:35:57 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 20:35:57 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 20:35:57 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:36:01 [http-nio-8080-exec-1] INFO  com.hospital.service.DoctorService - 查询所有医生
+2025-05-27 20:36:01 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0
+2025-05-27 20:36:36 [http-nio-8080-exec-3] INFO  com.hospital.service.DoctorService - 保存医生信息: Doctor(id=null, name=klf, department=外科, title=主任医师, description=klf)
+2025-05-27 20:36:36 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        doctor
+        (department, description, name, title) 
+    values
+        (?, ?, ?, ?)
+2025-05-27 20:36:37 [http-nio-8080-exec-4] INFO  com.hospital.service.DoctorService - 查询所有医生
+2025-05-27 20:36:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0
+2025-05-27 20:37:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        user
+        (doctor_id, password, phone, role, username) 
+    values
+        (?, ?, ?, ?, ?)
+2025-05-27 20:37:06 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:37:08 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 20:37:51 [http-nio-8080-exec-10] INFO  c.hospital.controller.UserController - 医生登录请求: 用户名=klf
+2025-05-27 20:37:51 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:37:51 [http-nio-8080-exec-10] WARN  c.hospital.controller.UserController - 医生登录失败: 用户名=klf
+2025-05-27 20:38:17 [http-nio-8080-exec-2] INFO  c.hospital.controller.UserController - 医生登录请求: 用户名=klf
+2025-05-27 20:38:17 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:38:17 [http-nio-8080-exec-2] INFO  c.hospital.controller.UserController - 医生登录成功: ID=9, 用户名=klf
+2025-05-27 20:38:17 [http-nio-8080-exec-2] WARN  c.hospital.controller.UserController - 医生用户没有关联的医生实体: ID=9, 用户名=klf
+2025-05-27 20:38:17 [http-nio-8080-exec-2] INFO  c.hospital.controller.UserController - 已创建临时医生信息: ID=9, 姓名=klf
+2025-05-27 20:38:19 [http-nio-8080-exec-4] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=9
+2025-05-27 20:38:19 [http-nio-8080-exec-4] INFO  com.hospital.service.DoctorService - 按ID查询医生: 9
+2025-05-27 20:38:19 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:38:19 [http-nio-8080-exec-4] WARN  com.hospital.service.DoctorService - 未找到医生: ID=9
+2025-05-27 20:38:19 [http-nio-8080-exec-4] ERROR c.h.controller.AppointmentController - 医生不存在: ID=9
+2025-05-27 20:38:21 [http-nio-8080-exec-5] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=9
+2025-05-27 20:38:21 [http-nio-8080-exec-5] INFO  com.hospital.service.DoctorService - 按ID查询医生: 9
+2025-05-27 20:38:21 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:38:21 [http-nio-8080-exec-5] WARN  com.hospital.service.DoctorService - 未找到医生: ID=9
+2025-05-27 20:38:21 [http-nio-8080-exec-5] ERROR c.h.controller.AppointmentController - 医生不存在: ID=9
+2025-05-27 20:38:21 [http-nio-8080-exec-6] INFO  c.h.controller.AppointmentController - 通过名称获取医生预约列表: 医生名称=klf
+2025-05-27 20:38:21 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 根据名称查询医生的预约: 姓名=klf
+2025-05-27 20:38:21 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    where
+        d1_0.name=?
+2025-05-27 20:38:21 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 医生预约数量: 0
+2025-05-27 20:38:21 [http-nio-8080-exec-6] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生名称=klf, 预约数量=0
+2025-05-27 20:38:25 [http-nio-8080-exec-8] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=9
+2025-05-27 20:38:25 [http-nio-8080-exec-8] INFO  com.hospital.service.DoctorService - 按ID查询医生: 9
+2025-05-27 20:38:25 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:38:25 [http-nio-8080-exec-8] WARN  com.hospital.service.DoctorService - 未找到医生: ID=9
+2025-05-27 20:38:25 [http-nio-8080-exec-8] ERROR c.h.controller.AppointmentController - 医生不存在: ID=9
+2025-05-27 20:38:52 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 20:38:56 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 20:39:10 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:39:11 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 20:39:13 [http-nio-8080-exec-4] INFO  com.hospital.service.DoctorService - 按科室查询医生: 外科
+2025-05-27 20:39:13 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.department=?
+2025-05-27 20:39:19 [http-nio-8080-exec-6] INFO  c.h.controller.AppointmentController - 预约请求: 用户ID=5, 医生ID=13, 时间=0112-12-21T21:02, 状态=booked
+2025-05-27 20:39:19 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 20:39:19 [http-nio-8080-exec-6] INFO  com.hospital.service.DoctorService - 按ID查询医生: 13
+2025-05-27 20:39:19 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:39:19 [http-nio-8080-exec-6] INFO  com.hospital.service.DoctorService - 找到医生: ID=13, 姓名=klf
+2025-05-27 20:39:19 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 创建预约: 用户=admin, 医生=klf, 时间=0112-12-21T21:02
+2025-05-27 20:39:19 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        appointment
+        (appointment_time, doctor_id, status, user_id) 
+    values
+        (?, ?, ?, ?)
+2025-05-27 20:39:19 [http-nio-8080-exec-6] INFO  c.h.controller.AppointmentController - 预约成功: ID=11, 用户=admin, 医生=klf
+2025-05-27 20:39:23 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:39:23 [http-nio-8080-exec-7] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=5, 用户名=admin
+2025-05-27 20:39:23 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 20:39:23 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:39:23 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:39:23 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:39:23 [http-nio-8080-exec-7] INFO  c.h.service.AppointmentService - 用户预约数量: 4
+2025-05-27 20:39:39 [http-nio-8080-exec-10] INFO  c.hospital.controller.UserController - 医生登录请求: 用户名=klf
+2025-05-27 20:39:39 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:39:39 [http-nio-8080-exec-10] INFO  c.hospital.controller.UserController - 医生登录成功: ID=9, 用户名=klf
+2025-05-27 20:39:39 [http-nio-8080-exec-10] WARN  c.hospital.controller.UserController - 医生用户没有关联的医生实体: ID=9, 用户名=klf
+2025-05-27 20:39:39 [http-nio-8080-exec-10] INFO  c.hospital.controller.UserController - 已创建临时医生信息: ID=9, 姓名=klf
+2025-05-27 20:39:40 [http-nio-8080-exec-1] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=9
+2025-05-27 20:39:40 [http-nio-8080-exec-1] INFO  com.hospital.service.DoctorService - 按ID查询医生: 9
+2025-05-27 20:39:40 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:39:40 [http-nio-8080-exec-1] WARN  com.hospital.service.DoctorService - 未找到医生: ID=9
+2025-05-27 20:39:40 [http-nio-8080-exec-1] ERROR c.h.controller.AppointmentController - 医生不存在: ID=9
+2025-05-27 20:46:27 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 22908 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 20:46:27 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 20:46:27 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 20:46:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 20:46:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 4 JPA repository interfaces.
+2025-05-27 20:46:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 20:46:28 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 20:46:28 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 20:46:28 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 20:46:28 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1034 ms
+2025-05-27 20:46:29 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 20:46:29 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 20:46:29 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 20:46:29 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 20:46:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 20:46:29 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@40f9f60d
+2025-05-27 20:46:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 20:46:30 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 20:46:30 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:46:30 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 20:46:31 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 20:46:31 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 20:46:31 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 20:46:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-27 20:46:31 [main] INFO  c.h.HospitalAppointmentApplication - Started HospitalAppointmentApplication in 3.915 seconds (process running for 4.181)
+2025-05-27 20:46:34 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27 20:46:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-27 20:46:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-05-27 20:46:35 [http-nio-8080-exec-2] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=9
+2025-05-27 20:46:35 [http-nio-8080-exec-2] INFO  com.hospital.service.DoctorService - 按ID查询医生: 9
+2025-05-27 20:46:35 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:46:35 [http-nio-8080-exec-2] WARN  com.hospital.service.DoctorService - 未找到医生: ID=9
+2025-05-27 20:46:35 [http-nio-8080-exec-2] ERROR c.h.controller.AppointmentController - 医生不存在: ID=9
+2025-05-27 20:46:37 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 通过名称获取医生预约列表: 医生名称=klf
+2025-05-27 20:46:37 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 根据名称查询医生的预约: 姓名=klf
+2025-05-27 20:46:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    where
+        d1_0.name=?
+2025-05-27 20:46:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:46:37 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 20:46:37 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 医生预约数量: 1
+2025-05-27 20:46:37 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生名称=klf, 预约数量=1
+2025-05-27 20:46:37 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 按ID查询预约: 11
+2025-05-27 20:46:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 20:46:37 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 找到预约: ID=11
+2025-05-27 20:46:37 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count(m1_0.id) 
+    from
+        message m1_0 
+    where
+        m1_0.doctor_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='user'
+2025-05-27 20:51:40 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 31408 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 20:51:40 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 20:51:40 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 20:51:40 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 20:51:40 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 4 JPA repository interfaces.
+2025-05-27 20:51:41 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 20:51:41 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 20:51:41 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 20:51:41 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 20:51:41 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1039 ms
+2025-05-27 20:51:41 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 20:51:41 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 20:51:41 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 20:51:41 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 20:51:41 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 20:51:42 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1da75dde
+2025-05-27 20:51:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 20:51:42 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 20:51:42 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:51:43 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 20:51:43 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 20:51:43 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 20:51:43 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 20:51:43 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-27 20:51:43 [main] INFO  c.h.HospitalAppointmentApplication - Started HospitalAppointmentApplication in 3.989 seconds (process running for 4.276)
+2025-05-27 20:52:01 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27 20:52:01 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-27 20:52:01 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-05-27 20:52:01 [http-nio-8080-exec-1] INFO  c.hospital.controller.UserController - 用户登录请求: 用户名=klf
+2025-05-27 20:52:01 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:52:01 [http-nio-8080-exec-1] INFO  c.hospital.controller.UserController - 用户登录成功: ID=9, 用户名=klf, 角色=doctor
+2025-05-27 20:52:03 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 20:52:08 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 20:52:14 [http-nio-8080-exec-7] INFO  c.hospital.controller.UserController - 用户登录请求: 用户名=klf
+2025-05-27 20:52:14 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:52:14 [http-nio-8080-exec-7] INFO  c.hospital.controller.UserController - 用户登录成功: ID=9, 用户名=klf, 角色=doctor
+2025-05-27 20:52:15 [http-nio-8080-exec-8] INFO  c.hospital.controller.UserController - 获取医生信息: 用户ID=9
+2025-05-27 20:52:15 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 20:52:15 [http-nio-8080-exec-8] WARN  c.hospital.controller.UserController - 医生用户没有关联的医生实体: ID=9, 用户名=klf
+2025-05-27 20:52:15 [http-nio-8080-exec-8] INFO  com.hospital.service.DoctorService - 按名称查询医生: klf
+2025-05-27 20:52:15 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.name=?
+2025-05-27 20:52:15 [http-nio-8080-exec-8] INFO  c.hospital.controller.UserController - 找到同名医生: ID=13, 姓名=klf
+2025-05-27 20:52:15 [http-nio-8080-exec-8] INFO  com.hospital.service.UserService - 更新用户信息: ID=9, 用户名=klf
+2025-05-27 20:52:15 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    update
+        user 
+    set
+        doctor_id=?,
+        password=?,
+        phone=?,
+        role=?,
+        username=? 
+    where
+        id=?
+2025-05-27 20:52:15 [http-nio-8080-exec-8] INFO  c.hospital.controller.UserController - 已更新用户的医生关联: 用户ID=9, 医生ID=13
+2025-05-27 20:52:16 [http-nio-8080-exec-10] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=13
+2025-05-27 20:52:16 [http-nio-8080-exec-10] INFO  com.hospital.service.DoctorService - 按ID查询医生: 13
+2025-05-27 20:52:16 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:52:16 [http-nio-8080-exec-10] INFO  com.hospital.service.DoctorService - 找到医生: ID=13, 姓名=klf
+2025-05-27 20:52:16 [http-nio-8080-exec-10] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=13, 姓名=klf
+2025-05-27 20:52:16 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 20:52:16 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 20:52:16 [http-nio-8080-exec-10] INFO  c.h.service.AppointmentService - 医生预约数量: 1
+2025-05-27 20:52:16 [http-nio-8080-exec-10] DEBUG c.h.service.AppointmentService - 预约详情: ID=11, 患者=admin, 医生=klf, 时间=0112-12-21T21:02, 状态=booked
+2025-05-27 20:52:16 [http-nio-8080-exec-10] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=13, 预约数量=1
+2025-05-27 20:52:16 [http-nio-8080-exec-10] INFO  c.h.controller.AppointmentController - 预约详情: ID=11, 患者=admin, 医生=klf, 时间=0112-12-21T21:02, 状态=booked
+2025-05-27 20:52:16 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 按ID查询预约: 11
+2025-05-27 20:52:16 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 20:52:16 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 找到预约: ID=11
+2025-05-27 20:52:16 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        count(m1_0.id) 
+    from
+        message m1_0 
+    where
+        m1_0.doctor_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='user'
+2025-05-27 20:52:42 [http-nio-8080-exec-3] INFO  c.hospital.controller.UserController - 用户登录请求: 用户名=admin
+2025-05-27 20:52:42 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:52:42 [http-nio-8080-exec-3] INFO  c.hospital.controller.UserController - 用户登录成功: ID=5, 用户名=admin, 角色=user
+2025-05-27 20:52:43 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 20:52:45 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:52:45 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=5, 用户名=admin
+2025-05-27 20:52:45 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 20:52:45 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:52:45 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:52:45 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:52:45 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 用户预约数量: 4
+2025-05-27 20:52:48 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 20:52:48 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=5, 用户名=admin
+2025-05-27 20:52:48 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 20:52:48 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:52:48 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:52:48 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 20:52:48 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 用户预约数量: 4
+2025-05-27 20:59:16 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 196 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 20:59:16 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 20:59:16 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 20:59:16 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 20:59:16 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 4 JPA repository interfaces.
+2025-05-27 20:59:16 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 20:59:16 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 20:59:16 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 20:59:16 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 20:59:16 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 746 ms
+2025-05-27 20:59:17 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 20:59:17 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 20:59:17 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 20:59:17 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 20:59:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 20:59:17 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@58e03769
+2025-05-27 20:59:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 20:59:18 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 20:59:18 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:59:18 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 20:59:18 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 20:59:18 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 20:59:18 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 20:59:18 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-05-27 20:59:18 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:59:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-27 20:59:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-27 20:59:18 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-27 20:59:18 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-05-27 20:59:44 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 16728 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 20:59:44 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 20:59:44 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 20:59:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 20:59:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 4 JPA repository interfaces.
+2025-05-27 20:59:45 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 20:59:45 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 20:59:45 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 20:59:45 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 20:59:45 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1047 ms
+2025-05-27 20:59:46 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 20:59:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 20:59:46 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 20:59:46 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 20:59:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 20:59:46 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a9b92c6
+2025-05-27 20:59:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 20:59:47 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 20:59:47 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 20:59:47 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 20:59:48 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 20:59:48 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 20:59:48 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 20:59:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-27 20:59:48 [main] INFO  c.h.HospitalAppointmentApplication - Started HospitalAppointmentApplication in 3.997 seconds (process running for 4.258)
+2025-05-27 20:59:57 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27 20:59:57 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-27 20:59:57 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-05-27 21:00:07 [http-nio-8080-exec-2] INFO  c.hospital.controller.UserController - 用户登录请求: 用户名=admin
+2025-05-27 21:00:07 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 21:00:07 [http-nio-8080-exec-2] INFO  c.hospital.controller.UserController - 用户登录成功: ID=5, 用户名=admin, 角色=user
+2025-05-27 21:00:09 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 21:00:10 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 21:00:10 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=5, 用户名=admin
+2025-05-27 21:00:10 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 21:00:10 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:00:10 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:00:10 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:00:10 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 用户预约数量: 4
+2025-05-27 21:00:13 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 21:00:13 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=5, 用户名=admin
+2025-05-27 21:00:13 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 21:00:13 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:00:13 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:00:13 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:00:13 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 用户预约数量: 4
+2025-05-27 21:01:00 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 21:01:00 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=5, 用户名=admin
+2025-05-27 21:01:00 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 21:01:00 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:01:00 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:01:00 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:01:00 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 用户预约数量: 4
+2025-05-27 21:06:25 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 22404 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 21:06:25 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 21:06:25 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 21:06:26 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 21:06:26 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 4 JPA repository interfaces.
+2025-05-27 21:06:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 21:06:26 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 21:06:26 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 21:06:26 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 21:06:26 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 736 ms
+2025-05-27 21:06:26 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 21:06:26 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 21:06:26 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 21:06:27 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 21:06:27 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 21:06:27 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@171aa66
+2025-05-27 21:06:27 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 21:06:27 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 21:06:27 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 21:06:28 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 21:06:28 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 21:06:28 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 21:06:28 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 21:06:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-05-27 21:06:28 [main] INFO  c.h.HospitalAppointmentApplication - Started HospitalAppointmentApplication in 2.89 seconds (process running for 3.114)
+2025-05-27 21:06:41 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27 21:06:41 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-27 21:06:41 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-05-27 21:06:42 [http-nio-8080-exec-9] INFO  c.h.controller.AppointmentController - 获取预约详情: ID=10
+2025-05-27 21:06:42 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:06:42 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:06:42 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:06:42 [http-nio-8080-exec-9] INFO  c.h.controller.AppointmentController - 预约详情获取成功: ID=10, 患者=admin, 医生=doctor
+2025-05-27 21:06:42 [http-nio-8080-exec-8] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:06:42 [http-nio-8080-exec-10] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:06:42 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:06:42 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:06:42 [http-nio-8080-exec-10] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:06:42 [http-nio-8080-exec-8] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:06:42 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.user_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='doctor'
+2025-05-27 21:06:42 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.appointment_id=? 
+    order by
+        m1_0.send_time
+2025-05-27 21:06:46 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 21:06:46 [http-nio-8080-exec-6] INFO  com.hospital.service.DoctorService - 按ID查询医生: 12
+2025-05-27 21:06:46 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:06:46 [http-nio-8080-exec-6] INFO  com.hospital.service.DoctorService - 找到医生: ID=12, 姓名=doctor
+2025-05-27 21:06:46 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:06:46 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:06:46 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:06:46 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        message
+        (appointment_id, content, doctor_id, is_read, send_time, sender, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-05-27 21:07:16 [http-nio-8080-exec-5] INFO  c.hospital.controller.UserController - 用户登录请求: 用户名=doctor
+2025-05-27 21:07:16 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 21:07:16 [http-nio-8080-exec-5] INFO  c.hospital.controller.UserController - 用户登录成功: ID=7, 用户名=doctor, 角色=doctor
+2025-05-27 21:07:17 [http-nio-8080-exec-7] INFO  c.hospital.controller.UserController - 获取医生信息: 用户ID=7
+2025-05-27 21:07:17 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 21:07:17 [http-nio-8080-exec-7] WARN  c.hospital.controller.UserController - 医生用户没有关联的医生实体: ID=7, 用户名=doctor
+2025-05-27 21:07:17 [http-nio-8080-exec-7] INFO  com.hospital.service.DoctorService - 按名称查询医生: doctor
+2025-05-27 21:07:17 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.name=?
+2025-05-27 21:07:17 [http-nio-8080-exec-7] INFO  c.hospital.controller.UserController - 找到同名医生: ID=12, 姓名=doctor
+2025-05-27 21:07:17 [http-nio-8080-exec-7] INFO  com.hospital.service.UserService - 更新用户信息: ID=7, 用户名=doctor
+2025-05-27 21:07:17 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    update
+        user 
+    set
+        doctor_id=?,
+        password=?,
+        phone=?,
+        role=?,
+        username=? 
+    where
+        id=?
+2025-05-27 21:07:17 [http-nio-8080-exec-7] INFO  c.hospital.controller.UserController - 已更新用户的医生关联: 用户ID=7, 医生ID=12
+2025-05-27 21:07:18 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=12
+2025-05-27 21:07:18 [http-nio-8080-exec-3] INFO  com.hospital.service.DoctorService - 按ID查询医生: 12
+2025-05-27 21:07:18 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:07:18 [http-nio-8080-exec-3] INFO  com.hospital.service.DoctorService - 找到医生: ID=12, 姓名=doctor
+2025-05-27 21:07:18 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=12, 姓名=doctor
+2025-05-27 21:07:18 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 21:07:18 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 21:07:18 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 21:07:18 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 医生预约数量: 2
+2025-05-27 21:07:18 [http-nio-8080-exec-3] DEBUG c.h.service.AppointmentService - 预约详情: ID=8, 患者=root, 医生=doctor, 时间=0010-10-10T10:10, 状态=booked
+2025-05-27 21:07:18 [http-nio-8080-exec-3] DEBUG c.h.service.AppointmentService - 预约详情: ID=10, 患者=admin, 医生=doctor, 时间=0001-01-01T01:01, 状态=booked
+2025-05-27 21:07:18 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=12, 预约数量=2
+2025-05-27 21:07:18 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 预约详情: ID=8, 患者=root, 医生=doctor, 时间=0010-10-10T10:10, 状态=booked
+2025-05-27 21:07:18 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 预约详情: ID=10, 患者=admin, 医生=doctor, 时间=0001-01-01T01:01, 状态=booked
+2025-05-27 21:07:18 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:07:18 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 按ID查询预约: 8
+2025-05-27 21:07:18 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:07:18 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:07:18 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 找到预约: ID=8
+2025-05-27 21:07:18 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:07:18 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        count(m1_0.id) 
+    from
+        message m1_0 
+    where
+        m1_0.doctor_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='user'
+2025-05-27 21:07:18 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        count(m1_0.id) 
+    from
+        message m1_0 
+    where
+        m1_0.doctor_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='user'
+2025-05-27 21:07:20 [http-nio-8080-exec-8] INFO  c.h.controller.AppointmentController - 获取预约详情: ID=10
+2025-05-27 21:07:20 [http-nio-8080-exec-8] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:07:20 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:07:20 [http-nio-8080-exec-8] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:07:20 [http-nio-8080-exec-8] INFO  c.h.controller.AppointmentController - 预约详情获取成功: ID=10, 患者=admin, 医生=doctor
+2025-05-27 21:07:20 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:07:20 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:07:20 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:07:20 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:07:20 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:07:20 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:07:20 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.doctor_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='user'
+2025-05-27 21:07:20 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.appointment_id=? 
+    order by
+        m1_0.send_time
+2025-05-27 21:07:20 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    update
+        message 
+    set
+        appointment_id=?,
+        content=?,
+        doctor_id=?,
+        is_read=?,
+        send_time=?,
+        sender=?,
+        user_id=? 
+    where
+        id=?
+2025-05-27 21:07:23 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 21:07:23 [http-nio-8080-exec-5] INFO  com.hospital.service.DoctorService - 按ID查询医生: 12
+2025-05-27 21:07:23 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:07:23 [http-nio-8080-exec-5] INFO  com.hospital.service.DoctorService - 找到医生: ID=12, 姓名=doctor
+2025-05-27 21:07:23 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:07:23 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:07:23 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:07:23 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        message
+        (appointment_id, content, doctor_id, is_read, send_time, sender, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-05-27 21:34:48 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m20s943ms900µs800ns).
+2025-05-27 21:44:44 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=12
+2025-05-27 21:44:44 [http-nio-8080-exec-3] INFO  com.hospital.service.DoctorService - 按ID查询医生: 12
+2025-05-27 21:44:44 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:44:44 [http-nio-8080-exec-3] INFO  com.hospital.service.DoctorService - 找到医生: ID=12, 姓名=doctor
+2025-05-27 21:44:44 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=12, 姓名=doctor
+2025-05-27 21:44:44 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 21:44:44 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 21:44:44 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 21:44:44 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 医生预约数量: 2
+2025-05-27 21:44:44 [http-nio-8080-exec-3] DEBUG c.h.service.AppointmentService - 预约详情: ID=8, 患者=root, 医生=doctor, 时间=0010-10-10T10:10, 状态=booked
+2025-05-27 21:44:44 [http-nio-8080-exec-3] DEBUG c.h.service.AppointmentService - 预约详情: ID=10, 患者=admin, 医生=doctor, 时间=0001-01-01T01:01, 状态=booked
+2025-05-27 21:44:44 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=12, 预约数量=2
+2025-05-27 21:44:44 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 预约详情: ID=8, 患者=root, 医生=doctor, 时间=0010-10-10T10:10, 状态=booked
+2025-05-27 21:44:44 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 预约详情: ID=10, 患者=admin, 医生=doctor, 时间=0001-01-01T01:01, 状态=booked
+2025-05-27 21:44:44 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 按ID查询预约: 8
+2025-05-27 21:44:44 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:44:44 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:44:44 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:44:44 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:44:44 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 找到预约: ID=8
+2025-05-27 21:44:44 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        count(m1_0.id) 
+    from
+        message m1_0 
+    where
+        m1_0.doctor_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='user'
+2025-05-27 21:44:44 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        count(m1_0.id) 
+    from
+        message m1_0 
+    where
+        m1_0.doctor_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='user'
+2025-05-27 21:44:58 [http-nio-8080-exec-8] INFO  c.hospital.controller.UserController - 用户登录请求: 用户名=klf
+2025-05-27 21:44:58 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 21:44:58 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:44:58 [http-nio-8080-exec-8] INFO  c.hospital.controller.UserController - 用户登录成功: ID=9, 用户名=klf, 角色=doctor
+2025-05-27 21:44:59 [http-nio-8080-exec-6] INFO  c.hospital.controller.UserController - 获取医生信息: 用户ID=9
+2025-05-27 21:44:59 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 21:44:59 [http-nio-8080-exec-5] INFO  c.h.controller.AppointmentController - 获取医生预约列表: 医生ID=13
+2025-05-27 21:44:59 [http-nio-8080-exec-5] INFO  com.hospital.service.DoctorService - 按ID查询医生: 13
+2025-05-27 21:44:59 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:44:59 [http-nio-8080-exec-5] INFO  com.hospital.service.DoctorService - 找到医生: ID=13, 姓名=klf
+2025-05-27 21:44:59 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 查询医生的预约: ID=13, 姓名=klf
+2025-05-27 21:44:59 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.doctor_id=?
+2025-05-27 21:44:59 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 21:44:59 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 医生预约数量: 1
+2025-05-27 21:44:59 [http-nio-8080-exec-5] DEBUG c.h.service.AppointmentService - 预约详情: ID=11, 患者=admin, 医生=klf, 时间=0112-12-21T21:02, 状态=booked
+2025-05-27 21:44:59 [http-nio-8080-exec-5] INFO  c.h.controller.AppointmentController - 医生预约列表: 医生ID=13, 预约数量=1
+2025-05-27 21:44:59 [http-nio-8080-exec-5] INFO  c.h.controller.AppointmentController - 预约详情: ID=11, 患者=admin, 医生=klf, 时间=0112-12-21T21:02, 状态=booked
+2025-05-27 21:44:59 [http-nio-8080-exec-7] INFO  c.h.service.AppointmentService - 按ID查询预约: 11
+2025-05-27 21:44:59 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:44:59 [http-nio-8080-exec-7] INFO  c.h.service.AppointmentService - 找到预约: ID=11
+2025-05-27 21:44:59 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        count(m1_0.id) 
+    from
+        message m1_0 
+    where
+        m1_0.doctor_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='user'
+2025-05-27 21:45:01 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 获取预约详情: ID=11
+2025-05-27 21:45:01 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 按ID查询预约: 11
+2025-05-27 21:45:01 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:01 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 找到预约: ID=11
+2025-05-27 21:45:01 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 预约详情获取成功: ID=11, 患者=admin, 医生=klf
+2025-05-27 21:45:01 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 按ID查询预约: 11
+2025-05-27 21:45:01 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 按ID查询预约: 11
+2025-05-27 21:45:01 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:01 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:01 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 找到预约: ID=11
+2025-05-27 21:45:01 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 找到预约: ID=11
+2025-05-27 21:45:01 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.doctor_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='user'
+2025-05-27 21:45:01 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.appointment_id=? 
+    order by
+        m1_0.send_time
+2025-05-27 21:45:04 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=u1_0.doctor_id 
+    where
+        u1_0.id=?
+2025-05-27 21:45:04 [http-nio-8080-exec-10] INFO  com.hospital.service.DoctorService - 按ID查询医生: 13
+2025-05-27 21:45:04 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:45:04 [http-nio-8080-exec-10] INFO  com.hospital.service.DoctorService - 找到医生: ID=13, 姓名=klf
+2025-05-27 21:45:04 [http-nio-8080-exec-10] INFO  c.h.service.AppointmentService - 按ID查询预约: 11
+2025-05-27 21:45:04 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:04 [http-nio-8080-exec-10] INFO  c.h.service.AppointmentService - 找到预约: ID=11
+2025-05-27 21:45:04 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        message
+        (appointment_id, content, doctor_id, is_read, send_time, sender, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-05-27 21:45:27 [http-nio-8080-exec-6] INFO  c.hospital.controller.UserController - 用户登录请求: 用户名=admin
+2025-05-27 21:45:27 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 21:45:27 [http-nio-8080-exec-6] INFO  c.hospital.controller.UserController - 用户登录成功: ID=5, 用户名=admin, 角色=user
+2025-05-27 21:45:28 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        distinct d1_0.department 
+    from
+        doctor d1_0
+2025-05-27 21:45:30 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 21:45:30 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=5, 用户名=admin
+2025-05-27 21:45:30 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 21:45:30 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:45:30 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:45:30 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:45:30 [http-nio-8080-exec-2] INFO  c.h.service.AppointmentService - 用户预约数量: 4
+2025-05-27 21:45:31 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27 21:45:31 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 查询用户的预约: ID=5, 用户名=admin
+2025-05-27 21:45:31 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27 21:45:31 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:45:31 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:45:31 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27 21:45:31 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 用户预约数量: 4
+2025-05-27 21:45:38 [http-nio-8080-exec-10] INFO  c.h.controller.AppointmentController - 获取预约详情: ID=9
+2025-05-27 21:45:38 [http-nio-8080-exec-10] INFO  c.h.service.AppointmentService - 按ID查询预约: 9
+2025-05-27 21:45:38 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:38 [http-nio-8080-exec-10] INFO  c.h.service.AppointmentService - 找到预约: ID=9
+2025-05-27 21:45:38 [http-nio-8080-exec-10] INFO  c.h.controller.AppointmentController - 预约详情获取成功: ID=9, 患者=admin, 医生=医生1
+2025-05-27 21:45:38 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 按ID查询预约: 9
+2025-05-27 21:45:38 [http-nio-8080-exec-8] INFO  c.h.service.AppointmentService - 按ID查询预约: 9
+2025-05-27 21:45:38 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:38 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:38 [http-nio-8080-exec-6] INFO  c.h.service.AppointmentService - 找到预约: ID=9
+2025-05-27 21:45:38 [http-nio-8080-exec-8] INFO  c.h.service.AppointmentService - 找到预约: ID=9
+2025-05-27 21:45:38 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.user_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='doctor'
+2025-05-27 21:45:38 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.appointment_id=? 
+    order by
+        m1_0.send_time
+2025-05-27 21:45:43 [http-nio-8080-exec-4] INFO  c.h.controller.AppointmentController - 获取预约详情: ID=11
+2025-05-27 21:45:43 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 按ID查询预约: 11
+2025-05-27 21:45:43 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:43 [http-nio-8080-exec-4] INFO  c.h.service.AppointmentService - 找到预约: ID=11
+2025-05-27 21:45:43 [http-nio-8080-exec-4] INFO  c.h.controller.AppointmentController - 预约详情获取成功: ID=11, 患者=admin, 医生=klf
+2025-05-27 21:45:43 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 按ID查询预约: 11
+2025-05-27 21:45:43 [http-nio-8080-exec-7] INFO  c.h.service.AppointmentService - 按ID查询预约: 11
+2025-05-27 21:45:43 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:43 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:43 [http-nio-8080-exec-7] INFO  c.h.service.AppointmentService - 找到预约: ID=11
+2025-05-27 21:45:43 [http-nio-8080-exec-5] INFO  c.h.service.AppointmentService - 找到预约: ID=11
+2025-05-27 21:45:43 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.user_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='doctor'
+2025-05-27 21:45:43 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.appointment_id=? 
+    order by
+        m1_0.send_time
+2025-05-27 21:45:43 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+    update
+        message 
+    set
+        appointment_id=?,
+        content=?,
+        doctor_id=?,
+        is_read=?,
+        send_time=?,
+        sender=?,
+        user_id=? 
+    where
+        id=?
+2025-05-27 21:45:45 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 获取预约详情: ID=10
+2025-05-27 21:45:45 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:45:45 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:45 [http-nio-8080-exec-3] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:45:45 [http-nio-8080-exec-3] INFO  c.h.controller.AppointmentController - 预约详情获取成功: ID=10, 患者=admin, 医生=doctor
+2025-05-27 21:45:45 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:45:45 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 按ID查询预约: 10
+2025-05-27 21:45:45 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:45 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27 21:45:45 [http-nio-8080-exec-9] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:45:45 [http-nio-8080-exec-1] INFO  c.h.service.AppointmentService - 找到预约: ID=10
+2025-05-27 21:45:45 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.appointment_id=? 
+    order by
+        m1_0.send_time
+2025-05-27 21:45:45 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.user_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='doctor'
+2025-05-27 21:45:45 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    update
+        message 
+    set
+        appointment_id=?,
+        content=?,
+        doctor_id=?,
+        is_read=?,
+        send_time=?,
+        sender=?,
+        user_id=? 
+    where
+        id=?
+2025-05-27 22:01:51 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m2s855ms727µs).
+2025-05-27 22:59:56 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=42m4s130ms49µs700ns).
+2025-05-27 23:02:01 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 28544 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 23:02:01 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 23:02:01 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 23:02:01 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 23:02:02 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 4 JPA repository interfaces.
+2025-05-27 23:02:02 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 23:02:02 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 23:02:02 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 23:02:02 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 23:02:02 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1038 ms
+2025-05-27 23:02:02 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 23:02:02 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 23:02:02 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 23:02:03 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 23:02:03 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 23:02:03 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c5f0edc
+2025-05-27 23:02:03 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 23:02:03 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 23:02:04 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 23:02:04 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 23:02:04 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 23:02:04 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 23:02:05 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 23:02:05 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-05-27 23:02:05 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 23:02:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-27 23:02:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-27 23:02:05 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-27 23:02:05 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-05-27 23:02:30 [main] INFO  c.h.HospitalAppointmentApplication - Starting HospitalAppointmentApplication using Java 21.0.7 with PID 5580 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27 23:02:30 [main] DEBUG c.h.HospitalAppointmentApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-05-27 23:02:30 [main] INFO  c.h.HospitalAppointmentApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-27 23:02:30 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27 23:02:30 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 4 JPA repository interfaces.
+2025-05-27 23:02:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-05-27 23:02:31 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-05-27 23:02:31 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27 23:02:31 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-05-27 23:02:31 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1040 ms
+2025-05-27 23:02:31 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27 23:02:31 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27 23:02:31 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-27 23:02:31 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27 23:02:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-05-27 23:02:32 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@40f9f60d
+2025-05-27 23:02:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-05-27 23:02:32 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 23:02:32 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 23:02:33 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27 23:02:33 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27 23:02:33 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2025-05-27 23:02:33 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27 23:02:33 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-05-27 23:02:33 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27 23:02:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-27 23:02:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-27 23:02:33 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-27 23:02:33 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-05-27T23:06:26.680+08:00  INFO 29564 --- [main] c.h.HospitalAppointmentApplication       : Starting HospitalAppointmentApplication using Java 21.0.7 with PID 29564 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27T23:06:26.681+08:00  INFO 29564 --- [main] c.h.HospitalAppointmentApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-05-27T23:06:27.031+08:00  INFO 29564 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27T23:06:27.070+08:00  INFO 29564 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 4 JPA repository interfaces.
+2025-05-27T23:06:27.385+08:00  INFO 29564 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-27T23:06:27.394+08:00  INFO 29564 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-27T23:06:27.395+08:00  INFO 29564 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27T23:06:27.435+08:00  INFO 29564 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-27T23:06:27.435+08:00  INFO 29564 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 728 ms
+2025-05-27T23:06:27.528+08:00  INFO 29564 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27T23:06:27.568+08:00  INFO 29564 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27T23:06:27.588+08:00  INFO 29564 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-27T23:06:27.729+08:00  INFO 29564 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27T23:06:27.744+08:00  INFO 29564 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-27T23:06:27.940+08:00  INFO 29564 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@45571cfc
+2025-05-27T23:06:27.942+08:00  INFO 29564 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-27T23:06:27.969+08:00  WARN 29564 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-27T23:06:27.970+08:00  WARN 29564 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-05-27T23:06:28.554+08:00  INFO 29564 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27T23:06:28.609+08:00  INFO 29564 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27T23:06:28.790+08:00  INFO 29564 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27T23:06:29.110+08:00  WARN 29564 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27T23:06:29.123+08:00  INFO 29564 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-27T23:06:29.259+08:00  WARN 29564 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27T23:06:29.321+08:00  INFO 29564 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-05-27T23:06:29.326+08:00  INFO 29564 --- [main] c.h.HospitalAppointmentApplication       : Started HospitalAppointmentApplication in 2.905 seconds (process running for 3.128)
+2025-05-27T23:14:50.863+08:00  INFO 328 --- [main] c.h.HospitalAppointmentApplication       : Starting HospitalAppointmentApplication using Java 21.0.7 with PID 328 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27T23:14:50.864+08:00  INFO 328 --- [main] c.h.HospitalAppointmentApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-05-27T23:14:51.208+08:00  INFO 328 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27T23:14:51.249+08:00  INFO 328 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 4 JPA repository interfaces.
+2025-05-27T23:14:51.564+08:00  INFO 328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-27T23:14:51.572+08:00  INFO 328 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-27T23:14:51.573+08:00  INFO 328 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27T23:14:51.624+08:00  INFO 328 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-27T23:14:51.625+08:00  INFO 328 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 736 ms
+2025-05-27T23:14:51.716+08:00  INFO 328 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27T23:14:51.750+08:00  INFO 328 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27T23:14:51.769+08:00  INFO 328 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-27T23:14:51.903+08:00  INFO 328 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27T23:14:51.918+08:00  INFO 328 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-27T23:14:52.127+08:00  INFO 328 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d24cdd9
+2025-05-27T23:14:52.128+08:00  INFO 328 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-27T23:14:52.157+08:00  WARN 328 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-27T23:14:52.159+08:00  WARN 328 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-05-27T23:14:52.749+08:00  INFO 328 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27T23:14:52.808+08:00  INFO 328 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27T23:14:52.979+08:00  INFO 328 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27T23:14:53.293+08:00  WARN 328 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27T23:14:53.306+08:00  INFO 328 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-27T23:14:53.443+08:00  WARN 328 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27T23:14:53.499+08:00  INFO 328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-05-27T23:14:53.503+08:00  INFO 328 --- [main] c.h.HospitalAppointmentApplication       : Started HospitalAppointmentApplication in 2.895 seconds (process running for 3.121)
+2025-05-27T23:16:17.615+08:00  INFO 14088 --- [main] c.h.HospitalAppointmentApplication       : Starting HospitalAppointmentApplication using Java 21.0.7 with PID 14088 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27T23:16:17.616+08:00  INFO 14088 --- [main] c.h.HospitalAppointmentApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-05-27T23:16:18.103+08:00  INFO 14088 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27T23:16:18.164+08:00  INFO 14088 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 4 JPA repository interfaces.
+2025-05-27T23:16:18.663+08:00  INFO 14088 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-27T23:16:18.672+08:00  INFO 14088 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-27T23:16:18.672+08:00  INFO 14088 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27T23:16:18.725+08:00  INFO 14088 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-27T23:16:18.726+08:00  INFO 14088 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1076 ms
+2025-05-27T23:16:18.881+08:00  INFO 14088 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27T23:16:18.940+08:00  INFO 14088 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27T23:16:18.965+08:00  INFO 14088 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-27T23:16:19.126+08:00  INFO 14088 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27T23:16:19.145+08:00  INFO 14088 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-27T23:16:19.408+08:00  INFO 14088 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c5f0edc
+2025-05-27T23:16:19.410+08:00  INFO 14088 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-27T23:16:19.441+08:00  WARN 14088 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-27T23:16:19.442+08:00  WARN 14088 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-05-27T23:16:20.091+08:00  INFO 14088 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27T23:16:20.150+08:00  INFO 14088 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27T23:16:20.385+08:00  INFO 14088 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27T23:16:20.816+08:00  WARN 14088 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27T23:16:20.839+08:00  INFO 14088 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-27T23:16:21.055+08:00  WARN 14088 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27T23:16:21.137+08:00  WARN 14088 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-05-27T23:16:21.138+08:00  INFO 14088 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27T23:16:21.139+08:00  INFO 14088 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-27T23:16:21.147+08:00  INFO 14088 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-27T23:16:21.159+08:00  INFO 14088 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-27T23:16:21.176+08:00 ERROR 14088 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-05-27T23:17:01.779+08:00  INFO 23776 --- [main] c.h.HospitalAppointmentApplication       : Starting HospitalAppointmentApplication using Java 21.0.2 with PID 23776 (C:\Users\21468\OneDrive\Desktop\522testend\target\classes started by 2146860667 in C:\Users\21468\OneDrive\Desktop\522testend)
+2025-05-27T23:17:01.782+08:00  INFO 23776 --- [main] c.h.HospitalAppointmentApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-05-27T23:17:02.253+08:00  INFO 23776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-27T23:17:02.288+08:00  INFO 23776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 4 JPA repository interfaces.
+2025-05-27T23:17:02.578+08:00  INFO 23776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-27T23:17:02.585+08:00  INFO 23776 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-27T23:17:02.586+08:00  INFO 23776 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-27T23:17:02.624+08:00  INFO 23776 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-27T23:17:02.625+08:00  INFO 23776 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 791 ms
+2025-05-27T23:17:02.712+08:00  INFO 23776 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-27T23:17:02.744+08:00  INFO 23776 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-27T23:17:02.763+08:00  INFO 23776 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-27T23:17:02.910+08:00  INFO 23776 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-27T23:17:02.926+08:00  INFO 23776 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-27T23:17:03.189+08:00  INFO 23776 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@698f4aa
+2025-05-27T23:17:03.190+08:00  INFO 23776 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-27T23:17:03.218+08:00  WARN 23776 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-27T23:17:03.219+08:00  WARN 23776 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-05-27T23:17:03.788+08:00  INFO 23776 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27T23:17:03.848+08:00  INFO 23776 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27T23:17:04.032+08:00  INFO 23776 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-27T23:17:04.348+08:00  WARN 23776 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-27T23:17:04.360+08:00  INFO 23776 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-27T23:17:04.489+08:00  WARN 23776 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-27T23:17:04.558+08:00  INFO 23776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-05-27T23:17:04.564+08:00  INFO 23776 --- [main] c.h.HospitalAppointmentApplication       : Started HospitalAppointmentApplication in 3.299 seconds (process running for 3.858)
+2025-05-27T23:18:00.065+08:00  INFO 23776 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-27T23:18:00.065+08:00  INFO 23776 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-27T23:18:00.066+08:00  INFO 23776 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-27T23:18:02.072+08:00 DEBUG 23776 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27T23:18:02.081+08:00  INFO 23776 --- [http-nio-8080-exec-2] c.hospital.service.AppointmentService    : 查询用户的预约: ID=5, 用户名=admin
+2025-05-27T23:18:02.084+08:00 DEBUG 23776 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27T23:18:02.089+08:00 DEBUG 23776 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27T23:18:02.092+08:00 DEBUG 23776 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27T23:18:02.095+08:00 DEBUG 23776 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27T23:18:02.096+08:00  INFO 23776 --- [http-nio-8080-exec-2] c.hospital.service.AppointmentService    : 用户预约数量: 4
+2025-05-27T23:19:13.405+08:00 DEBUG 23776 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.doctor_id,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        user u1_0 
+    where
+        u1_0.username=?
+2025-05-27T23:19:13.407+08:00  INFO 23776 --- [http-nio-8080-exec-7] c.hospital.service.AppointmentService    : 查询用户的预约: ID=5, 用户名=admin
+2025-05-27T23:19:13.408+08:00 DEBUG 23776 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        a1_0.doctor_id,
+        a1_0.status,
+        a1_0.user_id 
+    from
+        appointment a1_0 
+    where
+        a1_0.user_id=?
+2025-05-27T23:19:13.409+08:00 DEBUG 23776 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27T23:19:13.410+08:00 DEBUG 23776 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27T23:19:13.410+08:00 DEBUG 23776 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title 
+    from
+        doctor d1_0 
+    where
+        d1_0.id=?
+2025-05-27T23:19:13.412+08:00  INFO 23776 --- [http-nio-8080-exec-7] c.hospital.service.AppointmentService    : 用户预约数量: 4
+2025-05-27T23:19:18.511+08:00  INFO 23776 --- [http-nio-8080-exec-8] c.h.controller.AppointmentController     : 获取预约详情: ID=9
+2025-05-27T23:19:18.512+08:00  INFO 23776 --- [http-nio-8080-exec-8] c.hospital.service.AppointmentService    : 按ID查询预约: 9
+2025-05-27T23:19:18.530+08:00 DEBUG 23776 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27T23:19:18.534+08:00  INFO 23776 --- [http-nio-8080-exec-8] c.hospital.service.AppointmentService    : 找到预约: ID=9
+2025-05-27T23:19:18.536+08:00  INFO 23776 --- [http-nio-8080-exec-8] c.h.controller.AppointmentController     : 预约详情获取成功: ID=9, 患者=admin, 医生=医生1
+2025-05-27T23:19:18.558+08:00  INFO 23776 --- [http-nio-8080-exec-9] c.hospital.service.AppointmentService    : 按ID查询预约: 9
+2025-05-27T23:19:18.558+08:00  INFO 23776 --- [http-nio-8080-exec-5] c.hospital.service.AppointmentService    : 按ID查询预约: 9
+2025-05-27T23:19:18.560+08:00 DEBUG 23776 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27T23:19:18.561+08:00 DEBUG 23776 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        a1_0.id,
+        a1_0.appointment_time,
+        d1_0.id,
+        d1_0.department,
+        d1_0.description,
+        d1_0.name,
+        d1_0.title,
+        a1_0.status,
+        u1_0.id,
+        d2_0.id,
+        d2_0.department,
+        d2_0.description,
+        d2_0.name,
+        d2_0.title,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role,
+        u1_0.username 
+    from
+        appointment a1_0 
+    left join
+        doctor d1_0 
+            on d1_0.id=a1_0.doctor_id 
+    left join
+        user u1_0 
+            on u1_0.id=a1_0.user_id 
+    left join
+        doctor d2_0 
+            on d2_0.id=u1_0.doctor_id 
+    where
+        a1_0.id=?
+2025-05-27T23:19:18.563+08:00  INFO 23776 --- [http-nio-8080-exec-9] c.hospital.service.AppointmentService    : 找到预约: ID=9
+2025-05-27T23:19:18.564+08:00  INFO 23776 --- [http-nio-8080-exec-5] c.hospital.service.AppointmentService    : 找到预约: ID=9
+2025-05-27T23:19:18.567+08:00 DEBUG 23776 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.appointment_id=? 
+    order by
+        m1_0.send_time
+2025-05-27T23:19:18.573+08:00 DEBUG 23776 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        m1_0.id,
+        m1_0.appointment_id,
+        m1_0.content,
+        m1_0.doctor_id,
+        m1_0.is_read,
+        m1_0.send_time,
+        m1_0.sender,
+        m1_0.user_id 
+    from
+        message m1_0 
+    where
+        m1_0.user_id=? 
+        and m1_0.appointment_id=? 
+        and m1_0.is_read=0 
+        and m1_0.sender='doctor'
+2025-05-27T23:19:25.577+08:00  INFO 23776 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-27T23:19:25.579+08:00  INFO 23776 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-27T23:19:25.587+08:00  INFO 23776 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

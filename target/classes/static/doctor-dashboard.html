@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>医生工作台 - 医院管理系统</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+    const { useState, useEffect } = React;
+
+    function DoctorDashboardPage() {
+        const [appointments, setAppointments] = useState([]);
+        const [loading, setLoading] = useState(true);
+        const [user, setUser] = useState(null);
+        const [doctor, setDoctor] = useState(null);
+        const [unreadCounts, setUnreadCounts] = useState({});
+        const [debugInfo, setDebugInfo] = useState('');
+
+        useEffect(() => {
+            // 获取用户信息
+            const userData = localStorage.getItem('user');
+            const doctorData = localStorage.getItem('doctor');
+
+            console.log('用户数据:', userData);
+            console.log('医生数据:', doctorData);
+
+            if (userData && doctorData) {
+                try {
+                    const parsedUser = JSON.parse(userData);
+                    const parsedDoctor = JSON.parse(doctorData);
+
+                    console.log('解析后的用户数据:', parsedUser);
+                    console.log('解析后的医生数据:', parsedDoctor);
+
+                    // 验证解析后的数据结构
+                    if (parsedUser && parsedUser.role === 'doctor') {
+                        // 如果用户角色是医生，但没有单独的医生数据，使用用户数据
+                        const doctorInfo = parsedDoctor || {
+                            id: parsedUser.id,
+                            name: parsedUser.username,
+                            // 可以添加其他默认字段
+                        };
+
+                        console.log('数据验证通过 - 用户:', parsedUser, '医生:', doctorInfo);
+                        console.log('医生ID:', doctorInfo.id, '类型:', typeof doctorInfo.id);
+                        
+                        setUser(parsedUser);
+                        setDoctor(doctorInfo);
+                        fetchAppointments(doctorInfo.id);
+                    } else {
+                        console.error('数据结构不完整:', { parsedUser, parsedDoctor });
+                        alert('登录数据不完整，请重新登录');
+                        localStorage.removeItem('user');
+                        localStorage.removeItem('doctor');
+                        window.location.href = 'doctor-login.html';
+                    }
+                } catch (error) {
+                    console.error('数据解析失败:', error);
+                    alert(`数据解析失败: ${error.message}`);
+                    localStorage.removeItem('user');
+                    localStorage.removeItem('doctor');
+                    window.location.href = 'doctor-login.html';
+                }
+            } else {
+                console.log('未找到登录数据');
+                setLoading(false);
+                window.location.href = 'doctor-login.html';
+            }
+
+            // 初始化图标
+            setTimeout(() => {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            }, 100);
+        }, []);
+
+        const fetchAppointments = (doctorId) => {
+            if (!doctorId) {
+                console.error('医生ID为空，无法获取预约列表');
+                setDebugInfo('错误: 医生ID为空');
+                setLoading(false);
+                return;
+            }
+
+            const apiUrl = `/api/appointment/doctor/${doctorId}`;
+            console.log('请求预约列表URL:', apiUrl);
+            setDebugInfo(`正在请求: ${apiUrl}`);
+
+            try {
+                $.ajax({
+                    url: apiUrl,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(list) {
+                        console.log('获取到的预约列表:', list);
+                        
+                        // 如果通过ID没有找到预约，尝试通过名称查询
+                        if (list && list.length === 0 && doctor && doctor.name) {
+                            const nameApiUrl = `/api/appointment/doctor/name/${encodeURIComponent(doctor.name)}`;
+                            console.log('尝试通过名称查询预约:', nameApiUrl);
+                            setDebugInfo(`通过ID未找到预约，尝试通过名称查询: ${doctor.name}`);
+                            
+                            $.ajax({
+                                url: nameApiUrl,
+                                type: 'GET',
+                                dataType: 'json',
+                                success: function(nameList) {
+                                    console.log('通过名称查询到的预约:', nameList);
+                                    setDebugInfo(`通过名称获取到 ${nameList ? nameList.length : 0} 条预约`);
+                                    setAppointments(nameList || []);
+                                    
+                                    if (nameList && nameList.length > 0) {
+                                        nameList.forEach(appointment => {
+                                            fetchUnreadCount(appointment.id);
+                                        });
+                                    }
+                                    setLoading(false);
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error("通过名称查询预约失败:", status, error);
+                                    setDebugInfo(`通过名称查询失败: ${status} - ${error}`);
+                                    setLoading(false);
+                                }
+                            });
+                        } else {
+                            setDebugInfo(`获取到 ${list ? list.length : 0} 条预约`);
+                            setAppointments(list || []);
+                            // 获取每个预约的未读消息数
+                            if (list && list.length > 0) {
+                                list.forEach(appointment => {
+                                    fetchUnreadCount(appointment.id);
+                                });
+                            }
+                            setLoading(false);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("获取预约列表失败:", status, error);
+                        console.log("响应内容:", xhr.responseText);
+                        setDebugInfo(`请求失败: ${status} - ${error}`);
+                        setLoading(false);
+                    }
+                });
+            } catch (error) {
+                console.error("获取预约列表失败:", error);
+                setDebugInfo(`异常: ${error.message}`);
+                setLoading(false);
+            }
+        };
+
+        const fetchUnreadCount = (appointmentId) => {
+            $.get(`/api/message/unread/appointment/doctor/${appointmentId}`, function(count) {
+                setUnreadCounts(prev => ({
+                    ...prev,
+                    [appointmentId]: count
+                }));
+            }).fail(function() {
+                console.error("获取未读消息数失败");
+            });
+        };
+
+        const formatDateTime = (dateTimeStr) => {
+            const date = new Date(dateTimeStr);
+            return date.toLocaleString('zh-CN', {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        };
+
+        const getStatusBadge = (status) => {
+            switch (status) {
+                case 'booked':
+                    return (
+                        React.createElement("span", { className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800" },
+                            "已预约"
+                        )
+                    );
+                case 'completed':
+                    return (
+                        React.createElement("span", { className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800" },
+                            "已完成"
+                        )
+                    );
+                case 'cancelled':
+                    return (
+                        React.createElement("span", { className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800" },
+                            "已取消"
+                        )
+                    );
+                default:
+                    return (
+                        React.createElement("span", { className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800" },
+                            status
+                        )
+                    );
+            }
+        };
+
+        const handleLogout = () => {
+            localStorage.removeItem('user');
+            localStorage.removeItem('doctor');
+            window.location.href = 'doctor-login.html';
+        };
+
+        const handleRefresh = () => {
+            if (doctor && doctor.id) {
+                setLoading(true);
+                fetchAppointments(doctor.id);
+            } else {
+                setDebugInfo('无法刷新: 医生ID不可用');
+            }
+        };
+
+        return (
+            React.createElement("div", { className: "min-h-screen bg-gray-50" },
+                /* 顶部导航栏 */
+                React.createElement("nav", { className: "bg-white shadow" },
+                    React.createElement("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" },
+                        React.createElement("div", { className: "flex justify-between h-16" },
+                            React.createElement("div", { className: "flex" },
+                                React.createElement("div", { className: "flex-shrink-0 flex items-center" },
+                                    React.createElement("h1", { className: "text-xl font-bold text-blue-600" }, "医院管理系统")
+                                ),
+                                React.createElement("div", { className: "hidden sm:ml-6 sm:flex sm:space-x-8" },
+                                    React.createElement("a", { href: "doctor-dashboard.html", className: "border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" },
+                                        "我的预约"
+                                    )
+                                )
+                            ),
+                            React.createElement("div", { className: "flex items-center" },
+                                user && (
+                                    React.createElement("div", { className: "flex items-center space-x-4" },
+                                        React.createElement("span", { className: "text-sm text-gray-700" },
+                                            doctor?.name, " 医生"
+                                        ),
+                                        React.createElement("button", {
+                                                onClick: handleLogout,
+                                                className: "inline-flex items-center px-3 py-1 border border-transparent text-sm font-medium rounded-md text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                                            },
+                                            "退出登录"
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+
+                /* 主内容区 */
+                React.createElement("div", { className: "py-10" },
+                    React.createElement("header", null,
+                        React.createElement("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center" },
+                            React.createElement("h1", { className: "text-2xl font-bold text-gray-900" }, "我的预约"),
+                            React.createElement("button", {
+                                onClick: handleRefresh,
+                                className: "inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            }, [
+                                React.createElement("i", {
+                                    key: "icon",
+                                    "data-lucide": "refresh-cw",
+                                    className: "h-4 w-4 mr-2"
+                                }),
+                                "刷新预约"
+                            ])
+                        )
+                    ),
+                    React.createElement("main", null,
+                        React.createElement("div", { className: "max-w-7xl mx-auto sm:px-6 lg:px-8" },
+                            debugInfo && (
+                                React.createElement("div", { className: "mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-md" },
+                                    React.createElement("h3", { className: "text-sm font-medium text-yellow-800" }, "调试信息:"),
+                                    React.createElement("p", { className: "text-sm text-yellow-700 mt-1" }, debugInfo),
+                                    React.createElement("p", { className: "text-sm text-yellow-700 mt-1" }, 
+                                        "医生ID: ", doctor?.id, 
+                                        ", 医生名称: ", doctor?.name,
+                                        ", 科室: ", doctor?.department,
+                                        ", 预约数量: ", appointments?.length || 0
+                                    ),
+                                    React.createElement("button", {
+                                        className: "mt-2 px-2 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600",
+                                        onClick: () => {
+                                            // 显示当前登录的医生信息
+                                            const userInfo = localStorage.getItem('user');
+                                            const doctorInfo = localStorage.getItem('doctor');
+                                            console.log('当前登录用户信息:', userInfo ? JSON.parse(userInfo) : null);
+                                            console.log('当前登录医生信息:', doctorInfo ? JSON.parse(doctorInfo) : null);
+                                            
+                                            // 尝试通过名称查询预约
+                                            if (doctor && doctor.name) {
+                                                const nameApiUrl = `/api/appointment/doctor/name/${encodeURIComponent(doctor.name)}`;
+                                                console.log('手动尝试通过名称查询预约:', nameApiUrl);
+                                                
+                                                $.ajax({
+                                                    url: nameApiUrl,
+                                                    type: 'GET',
+                                                    dataType: 'json',
+                                                    success: function(nameList) {
+                                                        console.log('通过名称查询到的预约:', nameList);
+                                                        setDebugInfo(`通过名称获取到 ${nameList ? nameList.length : 0} 条预约`);
+                                                        setAppointments(nameList || []);
+                                                        
+                                                        if (nameList && nameList.length > 0) {
+                                                            nameList.forEach(appointment => {
+                                                                fetchUnreadCount(appointment.id);
+                                                            });
+                                                        }
+                                                    },
+                                                    error: function(xhr, status, error) {
+                                                        console.error("通过名称查询预约失败:", status, error);
+                                                        setDebugInfo(`通过名称查询失败: ${status} - ${error}`);
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    }, "诊断问题")
+                                )
+                            ),
+                            React.createElement("div", { className: "px-4 py-8 sm:px-0" },
+                                loading ? (
+                                    React.createElement("div", { className: "flex justify-center items-center h-64" },
+                                        React.createElement("div", { className: "text-center" },
+                                            React.createElement("div", { className: "animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4" }),
+                                            React.createElement("p", { className: "text-gray-600" }, "正在加载医生工作台...")
+                                        )
+                                    )
+                                ) : appointments.length === 0 ? (
+                                    React.createElement("div", { className: "bg-white shadow overflow-hidden sm:rounded-lg" },
+                                        React.createElement("div", { className: "px-4 py-5 sm:p-6 text-center" },
+                                            React.createElement("i", { "data-lucide": "calendar", className: "h-12 w-12 text-gray-400 mx-auto mb-4" }),
+                                            React.createElement("h3", { className: "text-lg leading-6 font-medium text-gray-900" }, "暂无预约"),
+                                            React.createElement("p", { className: "mt-2 text-sm text-gray-500" }, "目前没有患者预约您的诊疗服务。")
+                                        )
+                                    )
+                                ) : (
+                                    React.createElement("div", { className: "bg-white shadow overflow-hidden sm:rounded-lg" },
+                                        React.createElement("ul", { className: "divide-y divide-gray-200" },
+                                            appointments.map((appointment) => (
+                                                React.createElement("li", { key: appointment.id, className: "px-4 py-4 sm:px-6" },
+                                                    React.createElement("div", { className: "flex items-center justify-between" },
+                                                        React.createElement("div", { className: "flex items-center" },
+                                                            React.createElement("div", { className: "flex-shrink-0" },
+                                                                React.createElement("div", { className: "h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center" },
+                                                                    React.createElement("span", { className: "text-blue-600 font-medium" },
+                                                                        appointment.user.username.slice(0, 2)
+                                                                    )
+                                                                )
+                                                            ),
+                                                            React.createElement("div", { className: "ml-4" },
+                                                                React.createElement("div", { className: "text-sm font-medium text-gray-900" },
+                                                                    "患者: ", appointment.user.username
+                                                                ),
+                                                                React.createElement("div", { className: "text-sm text-gray-500" },
+                                                                    "预约时间: ", formatDateTime(appointment.appointmentTime)
+                                                                )
+                                                            )
+                                                        ),
+                                                        React.createElement("div", { className: "flex items-center space-x-4" },
+                                                            getStatusBadge(appointment.status),
+                                                            React.createElement("a", {
+                                                                    href: `message.html?appointmentId=${appointment.id}`,
+                                                                    className: "relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                                                },
+                                                                "开始咨询",
+                                                                unreadCounts[appointment.id] > 0 && (
+                                                                    React.createElement("span", { className: "absolute -top-2 -right-2 h-5 w-5 rounded-full bg-red-500 flex items-center justify-center text-xs text-white" },
+                                                                        unreadCounts[appointment.id]
+                                                                    )
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            ))
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        );
+    }
+
+    // 渲染应用 - 使用兼容的方式
+    const container = document.getElementById('root');
+    if (container) {
+        ReactDOM.render(React.createElement(DoctorDashboardPage), container);
+    }
+
+    // 初始化图标
+    document.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons();
+    });
+</script>
+</body>
+</html>

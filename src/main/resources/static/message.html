@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>在线问诊 - 医院管理系统</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    function MessagePage() {
+        const [messages, setMessages] = useState([]);
+        const [loading, setLoading] = useState(true);
+        const [user, setUser] = useState(null);
+        const [doctor, setDoctor] = useState(null);
+        const [appointment, setAppointment] = useState(null);
+        const [newMessage, setNewMessage] = useState('');
+        const [sending, setSending] = useState(false);
+        const [error, setError] = useState('');
+        const [debug, setDebug] = useState({});
+        const messagesEndRef = useRef(null);
+
+        useEffect(() => {
+            // 从URL获取预约ID
+            const urlParams = new URLSearchParams(window.location.search);
+            const appointmentId = urlParams.get('appointmentId');
+            
+            setDebug(prev => ({...prev, appointmentId}));
+            
+            // 获取当前登录用户
+            const storedUser = localStorage.getItem('user');
+            if (storedUser) {
+                try {
+                    const parsedUser = JSON.parse(storedUser);
+                    setUser(parsedUser);
+                    setDebug(prev => ({...prev, user: parsedUser}));
+                    
+                    // 获取预约详情
+                    if (appointmentId) {
+                        fetchAppointment(appointmentId);
+                    } else {
+                        setError('未找到预约信息：URL中缺少appointmentId参数');
+                        setLoading(false);
+                    }
+                } catch (e) {
+                    setError(`解析用户信息失败: ${e.message}`);
+                    setLoading(false);
+                }
+            } else {
+                setError('用户未登录，请先登录');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+        }, []);
+        
+        useEffect(() => {
+            if (appointment) {
+                fetchMessages();
+                // 标记消息为已读
+                markMessagesAsRead();
+                
+                // 设置定时刷新消息
+                const intervalId = setInterval(() => {
+                    fetchMessages(false); // 静默刷新，不显示加载状态
+                }, 10000); // 每10秒刷新一次
+                
+                return () => clearInterval(intervalId);
+            }
+        }, [appointment]);
+        
+        useEffect(() => {
+            scrollToBottom();
+        }, [messages]);
+        
+        const scrollToBottom = () => {
+            messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        };
+        
+        const fetchAppointment = (appointmentId) => {
+            console.log(`正在获取预约信息，ID=${appointmentId}`);
+            $.ajax({
+                url: `/api/appointment/${appointmentId}`,
+                method: 'GET',
+                success: (data) => {
+                    console.log('预约信息获取成功:', data);
+                    setDebug(prev => ({...prev, appointment: data}));
+                    
+                    if (data) {
+                        setAppointment(data);
+                        if (data.doctor) {
+                            setDoctor(data.doctor);
+                        } else {
+                            setError('预约信息中缺少医生数据');
+                        }
+                    } else {
+                        setError(`未找到ID为${appointmentId}的预约信息`);
+                    }
+                    setLoading(false);
+                },
+                error: (err) => {
+                    console.error('获取预约详情失败', err);
+                    setError(`获取预约详情失败: ${err.status} ${err.statusText}`);
+                    setDebug(prev => ({...prev, appointmentError: err}));
+                    setLoading(false);
+                }
+            });
+        };
+        
+        const fetchMessages = (showLoading = true) => {
+            if (!appointment || !appointment.id) {
+                setError('无法获取消息：预约信息不完整');
+                return;
+            }
+            
+            if (showLoading) {
+                setLoading(true);
+            }
+            
+            console.log(`正在获取消息，预约ID=${appointment.id}`);
+            $.ajax({
+                url: `/api/message/appointment/${appointment.id}`,
+                method: 'GET',
+                success: (data) => {
+                    console.log('消息获取成功:', data);
+                    setMessages(data || []);
+                    setDebug(prev => ({...prev, messages: data}));
+                    if (showLoading) {
+                        setLoading(false);
+                    }
+                },
+                error: (err) => {
+                    console.error('获取消息失败', err);
+                    setError(`获取消息失败: ${err.status} ${err.statusText}`);
+                    setDebug(prev => ({...prev, messagesError: err}));
+                    if (showLoading) {
+                        setLoading(false);
+                    }
+                }
+            });
+        };
+        
+        const markMessagesAsRead = () => {
+            if (!appointment || !appointment.id) return;
+            
+            if (user && user.role === 'user') {
+                $.ajax({
+                    url: `/api/message/markread/user/${appointment.id}`,
+                    method: 'PUT',
+                    success: () => {
+                        console.log('用户消息已标记为已读');
+                    },
+                    error: (err) => {
+                        console.error('标记消息已读失败', err);
+                    }
+                });
+            } else if (user && user.role === 'doctor') {
+                $.ajax({
+                    url: `/api/message/markread/doctor/${appointment.id}`,
+                    method: 'PUT',
+                    success: () => {
+                        console.log('医生消息已标记为已读');
+                    },
+                    error: (err) => {
+                        console.error('标记消息已读失败', err);
+                    }
+                });
+            }
+        };
+        
+        const sendMessage = () => {
+            if (!newMessage.trim() || !appointment) return;
+            
+            if (!appointment.user || !appointment.user.id) {
+                setError('无法发送消息：预约中缺少用户信息');
+                return;
+            }
+            
+            if (!appointment.doctor || !appointment.doctor.id) {
+                setError('无法发送消息：预约中缺少医生信息');
+                return;
+            }
+            
+            setSending(true);
+            setError('');
+            
+            const messageData = {
+                userId: appointment.user.id,
+                doctorId: appointment.doctor.id,
+                appointmentId: appointment.id,
+                content: newMessage,
+                sender: user.role === 'user' ? 'user' : 'doctor'
+            };
+            
+            console.log('正在发送消息:', messageData);
+            
+            $.ajax({
+                url: '/api/message/send',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(messageData),
+                success: (data) => {
+                    console.log('消息发送成功:', data);
+                    if (data) {
+                        setMessages(prev => [...prev, data]);
+                        setNewMessage('');
+                    } else {
+                        setError('发送消息失败：服务器返回空数据');
+                    }
+                    setSending(false);
+                },
+                error: (err) => {
+                    console.error('发送消息失败', err);
+                    setError(`发送消息失败: ${err.status} ${err.statusText}`);
+                    setSending(false);
+                }
+            });
+        };
+        
+        const formatTime = (dateTimeStr) => {
+            if (!dateTimeStr) return '';
+            try {
+                const date = new Date(dateTimeStr);
+                return date.toLocaleString('zh-CN', {
+                    month: 'numeric',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            } catch (e) {
+                console.error('格式化时间失败:', e);
+                return dateTimeStr;
+            }
+        };
+        
+        const refreshAppointment = () => {
+            if (!appointment || !appointment.id) {
+                setError('无法刷新：预约ID不存在');
+                return;
+            }
+            
+            setLoading(true);
+            fetchAppointment(appointment.id);
+        };
+        
+        const refreshMessages = () => {
+            if (!appointment || !appointment.id) {
+                setError('无法刷新消息：预约ID不存在');
+                return;
+            }
+            
+            setLoading(true);
+            fetchMessages();
+        };
+        
+        return (
+            <div className="min-h-screen bg-gray-50 py-8">
+                <div className="max-w-3xl mx-auto px-4">
+                    {/* 头部 */}
+                    <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center space-x-4">
+                            <a href="appointments.html" className="p-2 bg-white rounded-full shadow hover:bg-gray-100">
+                                <i data-lucide="arrow-left" className="h-5 w-5 text-gray-600"></i>
+                            </a>
+                            <h1 className="text-xl font-semibold text-gray-900">
+                                {doctor ? `与 ${doctor.name} 医生的对话` : '在线问诊'}
+                            </h1>
+                        </div>
+                        <div className="flex space-x-2">
+                            <button 
+                                onClick={refreshAppointment}
+                                className="p-2 bg-blue-50 rounded-full hover:bg-blue-100"
+                                title="刷新预约信息"
+                            >
+                                <i data-lucide="refresh-cw" className="h-5 w-5 text-blue-600"></i>
+                            </button>
+                            <button 
+                                onClick={refreshMessages}
+                                className="p-2 bg-green-50 rounded-full hover:bg-green-100"
+                                title="刷新消息"
+                            >
+                                <i data-lucide="message-square" className="h-5 w-5 text-green-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    {/* 错误提示 */}
+                    {error && (
+                        <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                            <div className="flex items-center text-red-800">
+                                <i data-lucide="alert-triangle" className="h-5 w-5 mr-2"></i>
+                                <span>{error}</span>
+                            </div>
+                            <div className="mt-2 text-sm">
+                                <button 
+                                    onClick={() => setError('')} 
+                                    className="text-red-600 hover:text-red-800"
+                                >
+                                    关闭提示
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                    
+                    {/* 调试信息 */}
+                    <div className="mb-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+                        <details>
+                            <summary className="font-medium text-gray-700 cursor-pointer">调试信息</summary>
+                            <div className="mt-2 text-xs font-mono whitespace-pre-wrap text-gray-600">
+                                <div><strong>预约ID:</strong> {debug.appointmentId || 'N/A'}</div>
+                                <div><strong>用户:</strong> {user ? `${user.id} (${user.username}, ${user.role})` : 'N/A'}</div>
+                                <div><strong>医生:</strong> {doctor ? `${doctor.id} (${doctor.name})` : 'N/A'}</div>
+                                <div><strong>预约状态:</strong> {appointment ? appointment.status : 'N/A'}</div>
+                                <div><strong>消息数量:</strong> {messages ? messages.length : 0}</div>
+                            </div>
+                        </details>
+                    </div>
+                    
+                    {/* 消息区域 */}
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                        {/* 医生信息 */}
+                        {doctor && (
+                            <div className="p-4 border-b border-gray-200 bg-blue-50">
+                                <div className="flex items-center space-x-3">
+                                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <span className="text-blue-600 font-medium">
+                                            {doctor.name.slice(-2)}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-medium text-gray-900">{doctor.name}</h3>
+                                        <p className="text-sm text-gray-600">{doctor.department || '未指定科室'} | {doctor.title || '医生'}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        
+                        {/* 消息列表 */}
+                        <div className="p-4 h-96 overflow-y-auto">
+                            {loading ? (
+                                <div className="flex justify-center items-center h-full">
+                                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                                </div>
+                            ) : messages.length === 0 ? (
+                                <div className="flex flex-col items-center justify-center h-full text-gray-500">
+                                    <i data-lucide="message-square" className="h-12 w-12 mb-2 text-gray-300"></i>
+                                    <p>暂无消息记录</p>
+                                    <p className="text-sm">发送第一条消息开始咨询</p>
+                                </div>
+                            ) : (
+                                <div className="space-y-4">
+                                    {messages.map((message, index) => (
+                                        <div 
+                                            key={message.id || index} 
+                                            className={`flex ${message.sender === (user.role === 'user' ? 'user' : 'doctor') ? 'justify-end' : 'justify-start'}`}
+                                        >
+                                            <div 
+                                                className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${message.sender === (user.role === 'user' ? 'user' : 'doctor') ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-800'}`}
+                                            >
+                                                <div className="text-sm">{message.content}</div>
+                                                <div className={`text-xs mt-1 ${message.sender === (user.role === 'user' ? 'user' : 'doctor') ? 'text-blue-100' : 'text-gray-500'}`}>
+                                                    {formatTime(message.sendTime)}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                    <div ref={messagesEndRef} />
+                                </div>
+                            )}
+                        </div>
+                        
+                        {/* 输入区域 */}
+                        <div className="p-4 border-t border-gray-200">
+                            <div className="flex space-x-2">
+                                <input 
+                                    type="text" 
+                                    value={newMessage}
+                                    onChange={(e) => setNewMessage(e.target.value)}
+                                    placeholder="输入消息..." 
+                                    className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
+                                    disabled={!appointment || loading || sending}
+                                />
+                                <button 
+                                    onClick={sendMessage}
+                                    disabled={sending || !newMessage.trim() || !appointment || loading}
+                                    className={`px-4 py-2 rounded-lg ${sending || !newMessage.trim() || !appointment || loading ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'} text-white`}
+                                >
+                                    {sending ? (
+                                        <div className="flex items-center space-x-1">
+                                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                                            <span>发送中</span>
+                                        </div>
+                                    ) : '发送'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* 温馨提示 */}
+                    <div className="mt-6 bg-yellow-50 border border-yellow-100 rounded-lg p-4">
+                        <div className="flex items-start space-x-3">
+                            <i data-lucide="alert-circle" className="h-5 w-5 text-yellow-500 mt-0.5"></i>
+                            <div>
+                                <h4 className="font-medium text-gray-900">温馨提示</h4>
+                                <p className="text-sm text-gray-600 mt-1">
+                                    在线问诊仅用于简单咨询，如有紧急情况请立即前往医院就诊。医生会在工作时间回复您的消息。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    // 渲染应用
+    ReactDOM.render(<MessagePage />, document.getElementById('root'));
+    
+    // 初始化图标
+    document.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons();
+    });
+</script>
+</body>
+</html>

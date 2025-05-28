@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>医院预约管理系统 - 登录/注册</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+    const { useState } = React;
+
+    function LoginPage() {
+        const [activeTab, setActiveTab] = useState('login');
+        const [loading, setLoading] = useState(false);
+        const [message, setMessage] = useState('');
+        const [messageType, setMessageType] = useState('');
+        const [formData, setFormData] = useState({
+            username: '',
+            password: '',
+            phone: '',
+            role: 'user' // 默认角色为普通用户
+        });
+
+        const handleInputChange = (field, value) => {
+            setFormData({ ...formData, [field]: value });
+            setMessage('');
+        };
+
+        const handleLogin = () => {
+            if (!formData.username || !formData.password) {
+                setMessage('请填写用户名和密码');
+                setMessageType('error');
+                return;
+            }
+
+            setLoading(true);
+            try {
+                $.ajax({
+                    url: '/api/user/login',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        username: formData.username,
+                        password: formData.password
+                    }),
+                    success: function(res) {
+                        if (res && res.id) {
+                            localStorage.setItem('user', JSON.stringify(res));
+                            setMessage('登录成功，正在跳转...');
+                            setMessageType('success');
+                            
+                            // 根据用户角色跳转到不同页面
+                            setTimeout(() => {
+                                if (res.role === 'admin') {
+                                    window.location.href = 'admin.html';
+                                } else if (res.role === 'doctor') {
+                                    // 如果是医生，尝试获取医生信息
+                                    $.ajax({
+                                        url: '/api/user/doctor/info',
+                                        type: 'GET',
+                                        data: { userId: res.id },
+                                        success: function(doctorRes) {
+                                            if (doctorRes) {
+                                                localStorage.setItem('doctor', JSON.stringify(doctorRes));
+                                            }
+                                            window.location.href = 'doctor-dashboard.html';
+                                        },
+                                        error: function() {
+                                            // 即使获取医生信息失败，仍然跳转到医生工作台
+                                            window.location.href = 'doctor-dashboard.html';
+                                        }
+                                    });
+                                } else {
+                                    window.location.href = 'main.html';
+                                }
+                            }, 1000);
+                        } else {
+                            setMessage('用户名或密码错误');
+                            setMessageType('error');
+                            setLoading(false);
+                        }
+                    },
+                    error: function() {
+                        setMessage('登录失败，请检查网络连接');
+                        setMessageType('error');
+                        setLoading(false);
+                    }
+                });
+            } catch (error) {
+                setMessage('登录失败，请重试');
+                setMessageType('error');
+                setLoading(false);
+            }
+        };
+
+        const handleRegister = () => {
+            if (!formData.username || !formData.password || !formData.phone) {
+                setMessage('请填写所有必填信息');
+                setMessageType('error');
+                return;
+            }
+
+            setLoading(true);
+            try {
+                $.ajax({
+                    url: '/api/user/register',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        username: formData.username,
+                        password: formData.password,
+                        phone: formData.phone,
+                        role: formData.role // 使用选择的角色
+                    }),
+                    success: function(res) {
+                        if (res && res.id) {
+                            setMessage('注册成功，请登录');
+                            setMessageType('success');
+                            setActiveTab('login');
+                            setFormData({ ...formData, phone: '', role: 'user' });
+                        } else {
+                            setMessage('注册失败，用户名可能已存在');
+                            setMessageType('error');
+                        }
+                        setLoading(false);
+                    },
+                    error: function() {
+                        setMessage('注册失败，请检查网络连接');
+                        setMessageType('error');
+                        setLoading(false);
+                    }
+                });
+            } catch (error) {
+                setMessage('注册失败，请重试');
+                setMessageType('error');
+                setLoading(false);
+            }
+        };
+
+        return React.createElement('div', {
+            className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50'
+        }, [
+            // Header
+            React.createElement('div', {
+                key: 'header',
+                className: 'bg-white shadow-sm border-b'
+            }, React.createElement('div', {
+                className: 'container mx-auto px-4 py-4'
+            }, React.createElement('div', {
+                className: 'flex items-center justify-center space-x-3'
+            }, [
+                React.createElement('div', {
+                    key: 'icon',
+                    className: 'p-2 bg-blue-600 rounded-lg'
+                }, React.createElement('i', {
+                    'data-lucide': 'heart',
+                    className: 'h-6 w-6 text-white'
+                })),
+                React.createElement('h1', {
+                    key: 'title',
+                    className: 'text-2xl font-bold text-gray-900'
+                }, '医院预约管理系统')
+            ]))),
+
+            // Main Content
+            React.createElement('div', {
+                key: 'main',
+                className: 'container mx-auto px-4 py-12'
+            }, React.createElement('div', {
+                className: 'max-w-6xl mx-auto'
+            }, React.createElement('div', {
+                className: 'grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'
+            }, [
+                // Left Side - Features
+                React.createElement('div', {
+                    key: 'features',
+                    className: 'space-y-8'
+                }, [
+                    React.createElement('div', {
+                        key: 'intro'
+                    }, [
+                        React.createElement('h2', {
+                            key: 'title',
+                            className: 'text-4xl font-bold text-gray-900 mb-4'
+                        }, [
+                            '智慧医疗',
+                            React.createElement('span', {
+                                key: 'highlight',
+                                className: 'text-blue-600'
+                            }, '预约服务')
+                        ]),
+                        React.createElement('p', {
+                            key: 'desc',
+                            className: 'text-xl text-gray-600 leading-relaxed'
+                        }, '便捷、高效、安全的在线医疗预约平台，为您提供优质的医疗服务体验')
+                    ]),
+
+                    React.createElement('div', {
+                        key: 'features-grid',
+                        className: 'grid grid-cols-1 md:grid-cols-2 gap-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'feature1',
+                            className: 'flex items-start space-x-4'
+                        }, [
+                            React.createElement('div', {
+                                key: 'icon',
+                                className: 'p-3 bg-blue-100 rounded-lg'
+                            }, React.createElement('i', {
+                                'data-lucide': 'stethoscope',
+                                className: 'h-6 w-6 text-blue-600'
+                            })),
+                            React.createElement('div', { key: 'content' }, [
+                                React.createElement('h3', {
+                                    key: 'title',
+                                    className: 'font-semibold text-gray-900 mb-2'
+                                }, '专业医生'),
+                                React.createElement('p', {
+                                    key: 'desc',
+                                    className: 'text-gray-600 text-sm'
+                                }, '汇聚各科室专业医生，提供权威医疗服务')
+                            ])
+                        ]),
+                        React.createElement('div', {
+                            key: 'feature2',
+                            className: 'flex items-start space-x-4'
+                        }, [
+                            React.createElement('div', {
+                                key: 'icon',
+                                className: 'p-3 bg-green-100 rounded-lg'
+                            }, React.createElement('i', {
+                                'data-lucide': 'clock',
+                                className: 'h-6 w-6 text-green-600'
+                            })),
+                            React.createElement('div', { key: 'content' }, [
+                                React.createElement('h3', {
+                                    key: 'title',
+                                    className: 'font-semibold text-gray-900 mb-2'
+                                }, '快速预约'),
+                                React.createElement('p', {
+                                    key: 'desc',
+                                    className: 'text-gray-600 text-sm'
+                                }, '在线预约，节省排队时间，提高就医效率')
+                            ])
+                        ]),
+                        React.createElement('div', {
+                            key: 'feature3',
+                            className: 'flex items-start space-x-4'
+                        }, [
+                            React.createElement('div', {
+                                key: 'icon',
+                                className: 'p-3 bg-purple-100 rounded-lg'
+                            }, React.createElement('i', {
+                                'data-lucide': 'shield',
+                                className: 'h-6 w-6 text-purple-600'
+                            })),
+                            React.createElement('div', { key: 'content' }, [
+                                React.createElement('h3', {
+                                    key: 'title',
+                                    className: 'font-semibold text-gray-900 mb-2'
+                                }, '安全保障'),
+                                React.createElement('p', {
+                                    key: 'desc',
+                                    className: 'text-gray-600 text-sm'
+                                }, '严格保护用户隐私，确保信息安全')
+                            ])
+                        ]),
+                        React.createElement('div', {
+                            key: 'feature4',
+                            className: 'flex items-start space-x-4'
+                        }, [
+                            React.createElement('div', {
+                                key: 'icon',
+                                className: 'p-3 bg-orange-100 rounded-lg'
+                            }, React.createElement('i', {
+                                'data-lucide': 'users',
+                                className: 'h-6 w-6 text-orange-600'
+                            })),
+                            React.createElement('div', { key: 'content' }, [
+                                React.createElement('h3', {
+                                    key: 'title',
+                                    className: 'font-semibold text-gray-900 mb-2'
+                                }, '贴心服务'),
+                                React.createElement('p', {
+                                    key: 'desc',
+                                    className: 'text-gray-600 text-sm'
+                                }, '24小时在线客服，随时为您解答疑问')
+                            ])
+                        ])
+                    ]),
+
+                    React.createElement('div', {
+                        key: 'tips',
+                        className: 'bg-blue-50 rounded-lg p-6'
+                    }, [
+                        React.createElement('h4', {
+                            key: 'title',
+                            className: 'font-semibold text-blue-900 mb-3'
+                        }, '温馨提示'),
+                        React.createElement('ul', {
+                            key: 'list',
+                            className: 'space-y-2 text-blue-800 text-sm'
+                        }, [
+                            React.createElement('li', {
+                                key: 'tip1',
+                                className: 'flex items-center space-x-2'
+                            }, [
+                                React.createElement('i', {
+                                    key: 'icon',
+                                    'data-lucide': 'check-circle',
+                                    className: 'h-4 w-4'
+                                }),
+                                React.createElement('span', { key: 'text' }, '请提前30分钟到达医院')
+                            ]),
+                            React.createElement('li', {
+                                key: 'tip2',
+                                className: 'flex items-center space-x-2'
+                            }, [
+                                React.createElement('i', {
+                                    key: 'icon',
+                                    'data-lucide': 'check-circle',
+                                    className: 'h-4 w-4'
+                                }),
+                                React.createElement('span', { key: 'text' }, '携带有效身份证件和医保卡')
+                            ]),
+                            React.createElement('li', {
+                                key: 'tip3',
+                                className: 'flex items-center space-x-2'
+                            }, [
+                                React.createElement('i', {
+                                    key: 'icon',
+                                    'data-lucide': 'check-circle',
+                                    className: 'h-4 w-4'
+                                }),
+                                React.createElement('span', { key: 'text' }, '如需取消预约请提前2小时操作')
+                            ])
+                        ])
+                    ])
+                ]),
+
+                // Right Side - Login Form
+                React.createElement('div', {
+                    key: 'form',
+                    className: 'flex justify-center'
+                }, React.createElement('div', {
+                    className: 'w-full max-w-md bg-white rounded-lg shadow-xl border-0 p-6'
+                }, [
+                    React.createElement('div', {
+                        key: 'header',
+                        className: 'text-center pb-4'
+                    }, [
+                        React.createElement('div', {
+                            key: 'icon',
+                            className: 'mx-auto mb-4 p-3 bg-blue-600 rounded-full w-fit'
+                        }, React.createElement('i', {
+                            'data-lucide': 'user',
+                            className: 'h-8 w-8 text-white'
+                        })),
+                        React.createElement('h3', {
+                            key: 'title',
+                            className: 'text-2xl font-bold text-gray-900'
+                        }, '欢迎使用'),
+                        React.createElement('p', {
+                            key: 'desc',
+                            className: 'text-gray-600 mt-2'
+                        }, '登录或注册您的账户开始使用服务')
+                    ]),
+
+                    React.createElement('div', {
+                        key: 'tabs',
+                        className: 'mb-6'
+                    }, React.createElement('div', {
+                        className: 'grid grid-cols-2 bg-gray-100 rounded-lg p-1'
+                    }, [
+                        React.createElement('button', {
+                            key: 'login-tab',
+                            onClick: () => setActiveTab('login'),
+                            className: `px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                                activeTab === 'login'
+                                    ? 'bg-white text-blue-600 shadow-sm'
+                                    : 'text-gray-600 hover:text-gray-900'
+                            }`
+                        }, '登录'),
+                        React.createElement('button', {
+                            key: 'register-tab',
+                            onClick: () => setActiveTab('register'),
+                            className: `px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                                activeTab === 'register'
+                                    ? 'bg-white text-blue-600 shadow-sm'
+                                    : 'text-gray-600 hover:text-gray-900'
+                            }`
+                        }, '注册')
+                    ])),
+
+                    // Login Form
+                    activeTab === 'login' && React.createElement('div', {
+                        key: 'login-form',
+                        className: 'space-y-4'
+                    }, [
+                        React.createElement('div', {
+                            key: 'username',
+                            className: 'space-y-2'
+                        }, [
+                            React.createElement('label', {
+                                key: 'label',
+                                className: 'block text-sm font-medium text-gray-700'
+                            }, '用户名'),
+                            React.createElement('div', {
+                                key: 'input-wrapper',
+                                className: 'relative'
+                            }, [
+                                React.createElement('i', {
+                                    key: 'icon',
+                                    'data-lucide': 'user',
+                                    className: 'absolute left-3 top-3 h-4 w-4 text-gray-400'
+                                }),
+                                React.createElement('input', {
+                                    key: 'input',
+                                    type: 'text',
+                                    placeholder: '请输入用户名',
+                                    value: formData.username,
+                                    onChange: (e) => handleInputChange('username', e.target.value),
+                                    className: 'w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                                })
+                            ])
+                        ]),
+                        React.createElement('div', {
+                            key: 'password',
+                            className: 'space-y-2'
+                        }, [
+                            React.createElement('label', {
+                                key: 'label',
+                                className: 'block text-sm font-medium text-gray-700'
+                            }, '密码'),
+                            React.createElement('div', {
+                                key: 'input-wrapper',
+                                className: 'relative'
+                            }, [
+                                React.createElement('i', {
+                                    key: 'icon',
+                                    'data-lucide': 'lock',
+                                    className: 'absolute left-3 top-3 h-4 w-4 text-gray-400'
+                                }),
+                                React.createElement('input', {
+                                    key: 'input',
+                                    type: 'password',
+                                    placeholder: '请输入密码',
+                                    value: formData.password,
+                                    onChange: (e) => handleInputChange('password', e.target.value),
+                                    onKeyPress: (e) => e.key === 'Enter' && handleLogin(),
+                                    className: 'w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                                })
+                            ])
+                        ]),
+                        React.createElement('button', {
+                            key: 'submit',
+                            onClick: handleLogin,
+                            disabled: loading,
+                            className: 'w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-md transition-colors disabled:opacity-50'
+                        }, loading ? '登录中...' : '登录')
+                    ]),
+
+                    // Register Form
+                    activeTab === 'register' && React.createElement('div', {
+                        key: 'register-form',
+                        className: 'space-y-4'
+                    }, [
+                        React.createElement('div', {
+                            key: 'username',
+                            className: 'space-y-2'
+                        }, [
+                            React.createElement('label', {
+                                key: 'label',
+                                className: 'block text-sm font-medium text-gray-700'
+                            }, '用户名'),
+                            React.createElement('div', {
+                                key: 'input-wrapper',
+                                className: 'relative'
+                            }, [
+                                React.createElement('i', {
+                                    key: 'icon',
+                                    'data-lucide': 'user',
+                                    className: 'absolute left-3 top-3 h-4 w-4 text-gray-400'
+                                }),
+                                React.createElement('input', {
+                                    key: 'input',
+                                    type: 'text',
+                                    placeholder: '请输入用户名',
+                                    value: formData.username,
+                                    onChange: (e) => handleInputChange('username', e.target.value),
+                                    className: 'w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                                })
+                            ])
+                        ]),
+                        React.createElement('div', {
+                            key: 'password',
+                            className: 'space-y-2'
+                        }, [
+                            React.createElement('label', {
+                                key: 'label',
+                                className: 'block text-sm font-medium text-gray-700'
+                            }, '密码'),
+                            React.createElement('div', {
+                                key: 'input-wrapper',
+                                className: 'relative'
+                            }, [
+                                React.createElement('i', {
+                                    key: 'icon',
+                                    'data-lucide': 'lock',
+                                    className: 'absolute left-3 top-3 h-4 w-4 text-gray-400'
+                                }),
+                                React.createElement('input', {
+                                    key: 'input',
+                                    type: 'password',
+                                    placeholder: '请输入密码',
+                                    value: formData.password,
+                                    onChange: (e) => handleInputChange('password', e.target.value),
+                                    className: 'w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                                })
+                            ])
+                        ]),
+                        React.createElement('div', {
+                            key: 'phone',
+                            className: 'space-y-2'
+                        }, [
+                            React.createElement('label', {
+                                key: 'label',
+                                className: 'block text-sm font-medium text-gray-700'
+                            }, '手机号'),
+                            React.createElement('div', {
+                                key: 'input-wrapper',
+                                className: 'relative'
+                            }, [
+                                React.createElement('i', {
+                                    key: 'icon',
+                                    'data-lucide': 'phone',
+                                    className: 'absolute left-3 top-3 h-4 w-4 text-gray-400'
+                                }),
+                                React.createElement('input', {
+                                    key: 'input',
+                                    type: 'tel',
+                                    placeholder: '请输入手机号',
+                                    value: formData.phone,
+                                    onChange: (e) => handleInputChange('phone', e.target.value),
+                                    className: 'w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                                })
+                            ])
+                        ]),
+                        React.createElement('div', {
+                            key: 'role',
+                            className: 'space-y-2'
+                        }, [
+                            React.createElement('label', {
+                                key: 'label',
+                                className: 'block text-sm font-medium text-gray-700'
+                            }, '用户类型'),
+                            React.createElement('div', {
+                                key: 'input-wrapper',
+                                className: 'relative'
+                            }, [
+                                React.createElement('i', {
+                                    key: 'icon',
+                                    'data-lucide': 'users',
+                                    className: 'absolute left-3 top-3 h-4 w-4 text-gray-400'
+                                }),
+                                React.createElement('select', {
+                                    key: 'select',
+                                    value: formData.role,
+                                    onChange: (e) => handleInputChange('role', e.target.value),
+                                    className: 'w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                                }, [
+                                    React.createElement('option', { key: 'user', value: 'user' }, '普通用户'),
+                                    React.createElement('option', { key: 'doctor', value: 'doctor' }, '医生')
+                                ])
+                            ])
+                        ]),
+                        React.createElement('button', {
+                            key: 'submit',
+                            onClick: handleRegister,
+                            disabled: loading,
+                            className: 'w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 rounded-md transition-colors disabled:opacity-50'
+                        }, loading ? '注册中...' : '注册')
+                    ]),
+
+                    // Message
+                    message && React.createElement('div', {
+                        key: 'message',
+                        className: `mt-4 p-3 rounded-md flex items-center space-x-2 ${
+                            messageType === 'success'
+                                ? 'bg-green-50 border border-green-200'
+                                : 'bg-red-50 border border-red-200'
+                        }`
+                    }, [
+                        React.createElement('i', {
+                            key: 'icon',
+                            'data-lucide': messageType === 'success' ? 'check-circle' : 'alert-circle',
+                            className: `h-4 w-4 ${messageType === 'success' ? 'text-green-600' : 'text-red-600'}`
+                        }),
+                        React.createElement('span', {
+                            key: 'text',
+                            className: `text-sm ${messageType === 'success' ? 'text-green-800' : 'text-red-800'}`
+                        }, message)
+                    ])
+                ]))
+            ]))),
+
+            // Footer
+            React.createElement('footer', {
+                key: 'footer',
+                className: 'bg-gray-50 border-t'
+            }, React.createElement('div', {
+                className: 'container mx-auto px-4 py-8'
+            }, React.createElement('div', {
+                className: 'text-center text-gray-600'
+            }, [
+                React.createElement('p', {
+                    key: 'copyright',
+                    className: 'mb-2'
+                }, '© 2024 医院预约管理系统. 保留所有权利.'),
+                React.createElement('p', {
+                    key: 'desc',
+                    className: 'text-sm'
+                }, '为您提供安全、便捷的医疗预约服务')
+            ])))
+        ]);
+    }
+
+    // 初始化Lucide图标
+    setTimeout(() => {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    }, 100);
+
+    ReactDOM.render(React.createElement(LoginPage), document.getElementById('root'));
+</script>
+</body>
+</html>
